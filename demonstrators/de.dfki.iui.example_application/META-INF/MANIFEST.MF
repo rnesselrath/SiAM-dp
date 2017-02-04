@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Example_application
+Bundle-SymbolicName: de.dfki.iui.example_application;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.osgi.services,
+ de.dfki.iui.mmds.application,
+ de.dfki.iui.mmds.speech_recognition,
+ de.dfki.iui.mmds.io.html,
+ de.dfki.iui.mmds.core,
+ de.dfki.iui.mmds.core.interfaces
+Bundle-ActivationPolicy: lazy
+Import-Package: org.osgi.framework
+Service-Component: OSGI-INF/component-description.xml

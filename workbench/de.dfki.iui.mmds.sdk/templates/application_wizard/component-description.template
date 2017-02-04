@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="PLUGIN_NAME.APPLICATION_NAME">
+   <implementation class="PLUGIN_NAME.APPLICATION_NAMEApp"/>
+   <reference cardinality="1..1" interface="de.dfki.iui.mmds.core.interfaces.IProjectManager" name="IProjectManager" policy="static"/>
+</scr:component>

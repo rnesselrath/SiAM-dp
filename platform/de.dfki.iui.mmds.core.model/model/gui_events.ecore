@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gui_events" nsURI="http://www.dfki.de/iui/mmds/core/model/io/gui/events"
+    nsPrefix="gui_events">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GUIEventData" abstract="true" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetId" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClickEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the user clicks on an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DblClickEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the user double-clicks on an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseDownEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a user presses a mouse button over an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseMoveEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the pointer is moving while it is over an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseOverEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the pointer is moved onto an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseOutEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a user moves the mouse pointer out of an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseUpEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a user releases a mouse button over an element"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyPressEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the user is pressing a key"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyUpEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the user presses a key"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyDownEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the user releases a key"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when the content of a form element, the selection, or the checked state have changed (for &lt;input>, &lt;select>, and &lt;textarea>)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlurEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a form element loses focus"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FocusEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when an element gets focus (for &lt;label>, &lt;input>, &lt;select>, textarea>, and &lt;button>)"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectTextEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a user selects some  text (for &lt;input> and &lt;textarea>)"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubmitEvent" eSuperTypes="#//GUIEventData">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The event occurs when a form is submitted"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" ordered="false"
+        upperBound="-1" eType="ecore:EClass base.ecore#//StringToBStringMapEntry"
+        unsettable="true" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogEvent" eSuperTypes="#//GUIEventData"/>
+</ecore:EPackage>

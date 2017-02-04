@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="base" nsURI="http://www.dfki.de/iui/mmds/core/model/base" nsPrefix="base">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="binding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Entity is the most upper class in the class hierarchy for knowledge. Every class that describes knowledge in a domain should be derived from this class."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENTITY_ID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The id of the entity. This id should be unique for the complete environment and is used for entiy identification in the knowledge base."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//KnowledgeBaseEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBaseEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
+        eType="#//DialogParticipant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionID" eType="#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberEntity" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nothing" eSuperTypes="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedEntity" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityResource" eSuperTypes="#//Resource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addToKnowledgeManager"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalizationResource" eSuperTypes="#//Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" lowerBound="1"
+        eType="#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//StringToBStringMapEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogParticipant" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userInterfaces" upperBound="-1"
+        eType="ecore:EClass io.ecore#//Service" eOpposite="io.ecore#//Service/user">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The user interfaces the dialog participant is using for the communication with SiAM."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="participantId" eType="#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A human readable id that is used for participant identification when describing input and output."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person" eSuperTypes="#//NamedEntity #//DialogParticipant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstname" eType="#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastname" eType="#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CyberPhysicalEnvironment" eSuperTypes="#//DialogParticipant #//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalResource">
+    <eGenericSuperTypes eClassifier="#//Resource"/>
+    <eGenericSuperTypes eClassifier="#//LocatableEntity">
+      <eTypeArguments eClassifier="#//DigitalLocation"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalResource">
+    <eGenericSuperTypes eClassifier="#//Resource"/>
+    <eGenericSuperTypes eClassifier="#//LocatableEntity">
+      <eTypeArguments eClassifier="#//PhysicalLocation"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocatableEntity" eSuperTypes="#//Entity">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Location"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" containment="true">
+      <eGenericType eTypeParameter="#//LocatableEntity/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceResource" eSuperTypes="#//DigitalResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleSheet" eSuperTypes="#//DigitalResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MediaResource" eSuperTypes="#//DigitalResource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mimeType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Picture" eSuperTypes="#//MediaResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//MediaResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//MediaResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Audio" eSuperTypes="#//MediaResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="#//TimeStamp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeoCoordinate" eSuperTypes="#//PhysicalLocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="long" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CartesianCoordinate2D" eSuperTypes="#//PhysicalLocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CartesianCoordinate3D" eSuperTypes="#//CartesianCoordinate2D">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PostalAddress" eSuperTypes="#//PhysicalLocation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DigitalLocation" eSuperTypes="#//Location">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalLocation" eSuperTypes="#//Location"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringToBStringMapEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" lowerBound="1"
+        eType="#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Url" instanceClassName="java.net.URL"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TimeStamp" instanceClassName="java.lang.Long">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Datatype for the representation of time stamps. The value is the number of milliseconds since January 1, 1970, 00:00:00 GMT"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TimeSpan" instanceClassName="java.lang.Long">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Datatype for the representation of time spans. The unit is defined as milliseconds (ms)."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="BBoolean" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BBoolean"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BByte" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BByte"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BChar" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BChar"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BDouble" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BDouble"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BFloat" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BFloat"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BInteger" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BInteger"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BLong" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BLong"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BShort" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BShort"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="BString" instanceClassName="de.dfki.iui.mmds.core.emf.datatypes.BString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DateTimeDescription" eSuperTypes="#//Entity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A datetime description has the following properties/fields: unitType, year, month, week, day, dayOfWeek, dayOfYear, hour, minute, second, and timeZone. The property unitType specifies the temporal unit type of the datetime description.&#xD;&#xA;For example, the temporal unit type of 10:30 is minute (unitMinute), and the temporal unit type of March 20, 2006 is day (unitDay). The unit type is required. With a given temporal unit type, all the fields/properties for smaller units will be ignored. For instance, if the temporal unit type is day (unitDay), the values of the field/property hour, minute, and second, if present, will be ignored.&#xD;&#xA;&#xD;&#xA;http://www.w3.org/TR/owl-time/"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitType" lowerBound="1"
+        eType="#//UnitTypeObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="second" eType="#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" eType="#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dayOfWeek" eType="#//DayOfWeekObject"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dayOfYear" eType="#//BInteger"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="#//MonthObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnitType">
+    <eLiterals name="unitSecond" literal="unitSecond"/>
+    <eLiterals name="unitMinute" value="1" literal="unitMinute"/>
+    <eLiterals name="unitHour" value="2" literal="unitHour"/>
+    <eLiterals name="unitDay" value="3" literal="unitDay"/>
+    <eLiterals name="unitWeek" value="4" literal="unitWeek"/>
+    <eLiterals name="unitMonth" value="5" literal="unitMonth"/>
+    <eLiterals name="unitYear" value="6" literal="unitYear"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="UnitTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="UnitType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Month">
+    <eLiterals name="JANUARY" value="1"/>
+    <eLiterals name="FEBRUARY" value="2"/>
+    <eLiterals name="MARCH" value="3"/>
+    <eLiterals name="APRIL" value="4"/>
+    <eLiterals name="MAY" value="5"/>
+    <eLiterals name="JUNE" value="6"/>
+    <eLiterals name="JULY" value="7"/>
+    <eLiterals name="AUGUST" value="8"/>
+    <eLiterals name="SEPTEMBER" value="9"/>
+    <eLiterals name="OCTOBER" value="10"/>
+    <eLiterals name="NOVEMBER" value="11"/>
+    <eLiterals name="DECEMBER" value="12"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="MonthObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="Month"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DayOfWeek">
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday" value="1"/>
+    <eLiterals name="Wednesday" value="2"/>
+    <eLiterals name="Thursday" value="3"/>
+    <eLiterals name="Friday" value="4"/>
+    <eLiterals name="Saturday" value="5"/>
+    <eLiterals name="Sunday" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DayOfWeekObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="DayOfWeek"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

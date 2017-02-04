@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="references" nsURI="http://www.dfki.de/iui/mmds/core/model/io/references"
+    nsPrefix="references">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceModel" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencePattern" eType="ecore:EClass pattern.ecore#//PObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasMorphoSyntacticDecomposition"
+        eType="#//LingInfo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeicticReference" eSuperTypes="#//ReferenceModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBaseReference" eSuperTypes="#//ReferenceModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GuiContentReference" eSuperTypes="#//ReferenceModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpatialReference" eSuperTypes="#//ReferenceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatum" lowerBound="1"
+        eType="ecore:EClass base.ecore#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spatialExpression" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemporalReference" eSuperTypes="#//ReferenceModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EEnum base.ecore#//UnitType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporalFrame" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionReference" eSuperTypes="#//ReferenceModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LingInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="case" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="partOfSpeech" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+</ecore:EPackage>

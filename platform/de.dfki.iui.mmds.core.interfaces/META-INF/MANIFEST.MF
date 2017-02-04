@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SiAM Core Interfaces
+Bundle-SymbolicName: de.dfki.iui.mmds.core.interfaces
+Bundle-Version: 1.4.0.qualifier
+Bundle-Vendor: DFKI GmbH
+Export-Package: de.dfki.iui.mmds.core.interfaces
+Require-Bundle: de.dfki.iui.mmds.core.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.service.component

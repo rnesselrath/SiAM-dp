@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project:Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http://www.dfki.de/iui/mmds/core/model/base" xmlns:project="http://www.dfki.de/iui/mmds/core/model/project">
+  <guis href="gui/CityListScreen.gui#/"/>
+  <guis href="gui/WelcomeScreen.gui#/"/>
+  <dialogue href="dialogue/HelloWorld.dialogue#/"/>
+  <grammarRules href="grammar_rules/HelloWorld.grammar_rules#/"/>
+  <entityResource href="knowledge/start.entities#/"/>
+  <digitalResources xsi:type="base:Picture" id="world">
+    <location xsi:type="base:DigitalLocation" url="media/world.png"/>
+  </digitalResources>
+  <digitalResources xsi:type="base:StyleSheet" id="helloWorldCss">
+    <location xsi:type="base:DigitalLocation" url="css/helloWorld.css"/>
+  </digitalResources>
+  <plugins className="de.dfki.iui.example_application.Plugin" namespace="helloWorldPlugin"/>
+  <supportedServiceInterfaces siamId="asr" serviceInstanceId="asr" serviceName="asr" modality="SPEECH">
+    <serviceType href="http://www.dfki.de/iui/mmds/core/model/io_interfaces#//Speech"/>
+  </supportedServiceInterfaces>
+  <supportedServiceInterfaces siamId="tts" serviceInstanceId="tts" serviceName="tts" modality="SPEECH">
+    <serviceType href="http://www.dfki.de/iui/mmds/core/model/io_interfaces#//ISpeechSynthesis"/>
+  </supportedServiceInterfaces>
+  <supportedServiceInterfaces siamId="bil" serviceInstanceId="billboard" serviceName="" modality="GUI">
+    <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIRequest"/>
+  </supportedServiceInterfaces>
+  <supportedServiceInterfaces siamId="glass" serviceInstanceId="" serviceName="glass" modality="GUI">
+    <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIRequest"/>
+  </supportedServiceInterfaces>
+</project:Project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="mmds.targetplatform" sequenceNumber="202">
+<locations>
+<location xmlns:targlets="http://www.eclipse.org/oomph/targlets/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SiAM_dp" type="Targlet">
+  <targlet activeRepositoryList="SiAM" includeSources="false" name="Platform" xsi:type="targlets:Targlet">
+    <requirement name="org.eclipse.platform.feature.group"/>
+    <requirement name="org.eclipse.equinox.cm"/>
+    <requirement name="org.apache.commons.io"/>
+    <requirement name="org.apache.commons.lang"/>
+    <requirement name="org.apache.commons.beanutils"/>
+    <requirement name="org.apache.commons.jexl"/>
+    <requirement name="org.jdom"/>
+    <requirement name="org.json"/>
+    <requirement name="com.eclipsesource.jaxrs.connector.feature.feature.group"/>
+    <requirement name="org.emfjson.feature.feature.group"/>
+    <requirement name="org.eclipse.jetty.websocket.api"/>
+    <requirement name="org.eclipse.jetty.websocket.server"/>
+    <requirement name="org.apache.commons.lang3"/>
+    <requirement name="org.apache.commons.collections"/>
+    <repositoryList name="SiAM">
+      <repository url="http://download.eclipse.org/releases/mars"/>
+      <repository url="http://download.eclipse.org/cbi/updates/license"/>
+      <repository url="http://hstaudacher.github.io/osgi-jax-rs-connector"/>
+      <repository url="http://madmacs.dfki.de/siam_dp/updateSite/3rd_party"/>
+      <repository url="http://ghillairet.github.io/p2"/>
+    </repositoryList>
+  </targlet>
+</location>
+<location xmlns:targlets="http://www.eclipse.org/oomph/targlets/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SiAM_workbench" type="Targlet">
+  <targlet activeRepositoryList="sdk" name="SDK" xsi:type="targlets:Targlet">
+    <requirement name="org.eclipse.emf.edit.feature.group"/>
+    <requirement name="org.eclipse.emf.ecore.edit.feature.group"/>
+    <requirement name="org.eclipse.emf.edit.ui.feature.group"/>
+    <requirement name="org.eclipse.emf.databinding.feature.group"/>
+    <requirement name="org.eclipse.emf.databinding.edit.feature.group"/>
+    <requirement name="org.eclipse.core.databinding"/>
+    <requirement name="org.eclipse.emf.ecore.editor"/>
+    <requirement name="org.eclipse.jdt.feature.group"/>
+    <requirement name="org.eclipse.pde.feature.group"/>
+    <repositoryList name="sdk">
+      <repository url="http://download.eclipse.org/releases/mars"/>
+      <repository url="http://download.eclipse.org/cbi/updates/license"/>
+    </repositoryList>
+  </targlet>
+</location>
+<location path="${project_loc:de.dfki.iui.mmds.targetplatform}/others" type="Directory"/>
+</locations>
+<launcherArgs>
+<vmArgs>-Dorg.osgi.service.http.port=8188&#13;
+-Declipse.ignoreApp=false&#13;
+-Declipse.application.launchDefault=false &#13;
+-Dosgi.noShutdown=true</vmArgs>
+</launcherArgs>
+</target>

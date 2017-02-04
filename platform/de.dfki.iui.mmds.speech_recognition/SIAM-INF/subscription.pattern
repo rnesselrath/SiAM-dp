@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pattern:PSubscription  xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pattern="http://www.dfki.de/iui/mmds/core/model/pattern">
+  <patterns xsi:type="pattern:PObject">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+    <slot>
+      <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/representation"/>
+      <range xsi:type="pattern:PObject">
+        <type href="http://www.dfki.de/iui/mmds/core/model/io_interfaces#//Speech"/>
+      </range>
+    </slot>
+    <slot>
+      <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/hypotheses"/>
+      <range xsi:type="pattern:PObject">
+        <type href="http://www.dfki.de/iui/mmds/core/model/io#//SpeechHypothesis"/>
+        <slot>
+          <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//Hypothesis/communicativeFunction"/>
+          <range xsi:type="pattern:PEmptySlot"/>
+        </slot>
+        <slot>
+          <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//SpeechHypothesis/tokens"/>
+        </slot>
+      </range>
+    </slot>
+  </patterns>
+</pattern:PSubscription>

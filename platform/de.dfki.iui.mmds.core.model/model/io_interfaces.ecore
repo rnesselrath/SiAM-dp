@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="io_interfaces" nsURI="http://www.dfki.de/iui/mmds/core/model/io_interfaces"
+    nsPrefix="io_interfaces">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorInput" abstract="true" interface="true"
+      eSuperTypes="io.ecore#//InputRepresentation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ControllerInput" abstract="true" interface="true"
+      eSuperTypes="io.ecore#//InputRepresentation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RendererOutput" abstract="true" interface="true"
+      eSuperTypes="io.ecore#//OutputRepresentation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActuatorOutput" abstract="true" interface="true"
+      eSuperTypes="io.ecore#//OutputRepresentation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AcousticEvent" eSuperTypes="#//ControllerInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An acoustic, non-verbal input originating from a user. Examples are laughing, coughing, hands-clapping etc."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Gesture" abstract="true" interface="true"
+      eSuperTypes="#//ControllerInput"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HandGesture" eSuperTypes="#//Gesture">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fingersLeft" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fingersRight" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelLeft" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="levelRight" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gesture" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gestureDirection" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BodyGesture" eSuperTypes="#//Gesture"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EyeGaze" eSuperTypes="#//ControllerInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents low-level information from an eye-tracking device."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftEye" lowerBound="1"
+        eType="#//EyeData" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightEye" lowerBound="1"
+        eType="#//EyeData" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HeadGesture" eSuperTypes="#//Gesture">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A gesture performed through head rotation and movement, e.g. nodding."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonGesture" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Distance from the head to the camera, in meters."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointingGesture" eSuperTypes="#//Gesture">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Pointing gesture with a single target point. Should be considered in conjunction with the modality/device meta data. According to this, it could represent a non-touch finger gesture, a touch pointing gesture, a mouse click etc."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coordinate" lowerBound="1"
+        eType="ecore:EClass base.ecore#//CartesianCoordinate2D" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Speech" eSuperTypes="#//ControllerInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Verbal speech input, usually recorded by an ASR. Only the most likely hypothesis is provided in this representation; other hypotheses are listed separately."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="words" upperBound="-1"
+        eType="#//Word" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="utterance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The utterance string."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signalUri" eType="ecore:EDataType base.ecore#//Url">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URL from which the speech signal can be retrieved. The data should be in WAV format and be exactly of the same length as described in the input meta data."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="problem" eType="#//SpeechRecognitionProblem">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Can be used to mark problems that have occured with speech recognition. This can be specified in addition to a recognition result to indicate potential problems or instead of (if the recognition problem was too severe)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SpeechRecognitionProblem">
+    <eLiterals name="none"/>
+    <eLiterals name="rejected" value="1"/>
+    <eLiterals name="silenceTimeout" value="2"/>
+    <eLiterals name="tooQuiet" value="3"/>
+    <eLiterals name="tooLoud" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ISpeechSynthesis" abstract="true" interface="true"
+      eSuperTypes="#//RendererOutput"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechSynthesis" eSuperTypes="#//ISpeechSynthesis">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A request to output spoken text."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="utterance" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AudioTrack" eSuperTypes="#//RendererOutput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A request to play a pre-recorded audio track. Semantics are not part of this definition."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trackId" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A lookup code that may tell the output device which track to play."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnyURI">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An URL where the track data can be obtained, if available."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VirtualCharacter" eSuperTypes="#//RendererOutput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes an interaction that a virtual character should perform. This may also include speech. This model is based on Agent BML (Behavior Modeling Language)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="utterance" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarId" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="camera" eType="#//Camera"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bml" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EyeData" eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Eyegaze detail data for a single eye."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gazePosX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the horizontal position where the subjects’ gaze is at. Each eye has its own data, independent of the other eye. From the subjects’ perspective, it normally increases to the right and downwards. However, the range and resolution is dependent of the current calibration set. For the calibration software made by some manufacturers (e.g. Tobii) to track gaze on a computer screen for instance, the upper left corner of the screen is point (0,0) and lower right corner is (1,1)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gazePosY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the vertical position where the subjects’ gaze is at. Each eye has its own data, independent of the other eye. From the subjects’ perspective, it normally increases to the right and downwards. However, the range and resolution is dependent of the current calibration set. For the calibration software made by some manufacturers (e.g. Tobii) to track gaze on a computer screen for instance, the upper left corner of the screen is point (0,0) and lower right corner is (1,1)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cameraPosX" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the horizontal position of the eye as seen by the eye tracker. This position has nothing to do with the gaze target position. Each eye has its own data, independent of the other eye. The upper left corner of the eye tracker sensor is (0, 0) and lower right sensor is (1, 1). Note that the values are from the eye tracker point of view. If subject is moving to the right, the values are decreasing. The purpose of this data is mainly to give a good idea of how to place the subject to make the tracking conditions at best."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cameraPosY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the vertical position of the eye as seen by the eye tracker. This position has nothing to do with the gaze target position. Each eye has its own data, independent of the other eye. The upper left corner of the eye tracker sensor is (0, 0) and lower right sensor is (1, 1). Note that the values are from the eye tracker point of view. If subject is moving to the right, the values are decreasing. The purpose of this data is mainly to give a good idea of how to place the subject to make the tracking conditions at best."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pupilDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the longest possible chord of the ellipse fitted to the pupil of the eye, measured in millimeter. Each eye has its own data, independent of the other eye. The values given are dependent of the distance measure, so there are the same accuracy uncertainties. Therefore, the values given are best used as a set of relative values, not absolute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is the shortest distance between the eye tracker sensor and the eye, measured in millimeter. Each eye has its own data, independent of the other eye. The values given are best used as a set of relative values, not absolute. If absolute values are required by the application being built, have in mind that following parameters will highly affect the accuracy: (1) Glasses. (2) How much the cornea of the subjects’ eye is diverting from the assumed average human being eye cornea.&#xD;&#xA;It is normal that a person wearing glasses and have a cornea that diverts by a few percent will have an error of 100 mm when distance measure is 600 mm."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confusionConfidence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is an estimate of how certain the eye tracker is that the data given for an eye really belongs to that eye."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Word" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phonemes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The pronunciation of the word as phonemes. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lexicalForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Can be used to describe the lexical form of the element without normalization of numbers, currency values, and ordinals (for example, displays &quot;two dollars&quot; for the spoken words &quot;two dollars&quot;)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginTime" eType="ecore:EDataType base.ecore#//TimeStamp">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exact beginning of this word unit."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType base.ecore#//TimeStamp">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exact end  time of this word unit."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Camera">
+    <eLiterals name="FULL" literal="FULL"/>
+    <eLiterals name="FULLBODY" value="1" literal="FULLBODY"/>
+    <eLiterals name="UPPERBODY" value="2" literal="UPPERBODY"/>
+    <eLiterals name="CLOSEUP" value="3" literal="CLOSEUP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Thermometer" eSuperTypes="#//SensorInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType base.ecore#//BFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Unit" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PulseMonitor" eSuperTypes="#//SensorInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pulse" eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LampControl" eSuperTypes="#//ActuatorOutput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onState" eType="ecore:EDataType base.ecore#//BBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VentilatorControl" eSuperTypes="#//ActuatorOutput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tangible" eSuperTypes="#//ControllerInput"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechFeatures">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Speech features computed from the speech signal. These features can be used in some cases to support the interpretation."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spearkingRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>

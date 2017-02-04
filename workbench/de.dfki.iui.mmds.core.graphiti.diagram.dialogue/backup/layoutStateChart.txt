@@ -1,0 +1,268 @@
+		//Find the parent container
+//		ContainerShape parentContainer = (ContainerShape) containerShape.eContainer();
+//		GraphicsAlgorithm parentGa = parentContainer.getGraphicsAlgorithm();
+//		EObject parent = (EObject) getBusinessObjectForPictogramElement(parentContainer);
+//		
+//		
+//		if(!parentGa.getGraphicsAlgorithmChildren().isEmpty()){
+//			parentGa = parentGa.getGraphicsAlgorithmChildren().get(0); //If there is a visible rectangle, get the visible then
+//		}
+
+		//Check if this object is a child of the top most object.
+		//This does not mean that this is the top most
+		//This is used to avoid recomputing of X and Y positions
+//		boolean onParent = false;
+//		if(parentContainer.getLink().getBusinessObjects().size()>1){
+//			onParent = true;
+//		}
+		
+		GraphicsAlgorithm containerGa = containerShape.getGraphicsAlgorithm();
+		// the containerGa is the invisible rectangle
+
+		
+		
+		GraphicsAlgorithm rectangle = null;
+		// containing the visible rectangle as its (first and only) child
+		if(!containerGa.getGraphicsAlgorithmChildren().isEmpty()){
+			rectangle = containerGa.getGraphicsAlgorithmChildren().get(0);
+		}
+		
+		//boolean initialVisible = PropertyUtil.isInitialVisible(containerShape);
+
+		
+		//Find whether the target container has a holder container in order to move the shape down by the Y axis 
+//		Iterator<Shape> iter3 = parentContainer.getChildren().iterator();
+//		while(iter3.hasNext()){
+//			Shape shape = iter3.next();
+//			if(PropertyUtil.isCondEventHolder(shape) || PropertyUtil.isEntryExitHolder(shape) || PropertyUtil.isSequenceHolder(shape)){
+//				hasHolder = true;
+//			}
+//			if(PropertyUtil.isFooterLine(shape)){
+//				hasFooter = true;
+//			}
+//		}
+		
+		
+		//int max_width = parentGa.getWidth() ;//- PADDING_WIDTH;
+		
+		
+	
+		//NOT USED now.
+		//Find if the object is on the parent diagram
+//		boolean isParentDiagram = false;
+//		if(Graphiti.getPeService().getPropertyValue(containerShape, "isParentDiagram") != null){
+//			isParentDiagram = Boolean.parseBoolean(Graphiti.getPeService().getPropertyValue(containerShape, "isParentDiagram"));
+//		}
+		
+//		// height of invisible rectangle
+//		rectangleHeight =containerGa.getHeight();
+//		
+//		//Check if the width of the object is higher than the width of the parent.
+//		if((containerGa.getX()+containerGa.getWidth()) >= (parentGa.getX()+parentGa.getWidth())  && !onParent && !(parent instanceof Dialogue)){
+//			//int x = (parentGa.getWidth())-containerGa.getWidth();
+//			int x = (parentGa.getX()+parentGa.getWidth())-(containerGa.getWidth()+containerGa.getX());
+//			if(x<0) x=0;
+//			int newWidth = parentGa.getWidth();
+//			
+//			if(!PropertyUtil.isThen(parentContainer) && !PropertyUtil.isElse(parentContainer) && !PropertyUtil.isSequenceHolder(parentContainer)){
+//				newWidth = newWidth - 10;
+//				x = x+5;
+//			}
+//			Graphiti.getGaService().setLocationAndSize(containerShape.getGraphicsAlgorithm(), x, containerGa.getY(), newWidth, containerGa.getHeight());
+//		}
+		
+//		if (hasHolder) {
+//			PADDING_TOP = 65;
+//		}
+//		
+//		if(hasFooter){
+//			PADDING_BOTTOM = 50;
+//		}
+//		
+//		if (PropertyUtil.isThen(parentContainer) || PropertyUtil.isElse(parentContainer) || PropertyUtil.isSequenceHolder(parentContainer)) {
+//			PADDING_TOP = 0;
+//			
+//			//This is to allow the width to stretch as the parent shape streches
+//			if(containerGa.getWidth()<parentGa.getWidth()){
+//				Graphiti.getGaService().setLocationAndSize(containerShape.getGraphicsAlgorithm(), containerGa.getX(), containerGa.getY(), parentGa.getWidth(), containerGa.getHeight());
+//			}
+//		}
+		
+//		if(getBusinessObjectForPictogramElement(parentContainer) instanceof DoWhile 
+//				|| getBusinessObjectForPictogramElement(parentContainer) instanceof While){
+//			
+//			PADDING_TOP = 20;
+//			PADDING_BOTTOM = 34;
+//			
+//			int newHeight = containerGa.getHeight();
+//			int newWidth = containerGa.getWidth();
+//			int x = 0;
+//			int y = PADDING_TOP;
+//			
+//			if(containerGa.getHeight()<parentGa.getHeight()-PADDING_TOP - PADDING_BOTTOM){
+//				newHeight = parentGa.getHeight() - PADDING_TOP - PADDING_BOTTOM-10;
+//			}
+//			
+//			//This is to allow the width to stretch as the parent shape streches
+//			if(containerGa.getWidth()<parentGa.getWidth()){
+//				newWidth = parentGa.getWidth();
+//			}
+//			
+//			Graphiti.getGaService().setLocationAndSize(containerShape.getGraphicsAlgorithm(), x, y, newWidth, newHeight);
+//		}
+		
+		//int max_height = parentGa.getHeight() - PADDING_TOP - PADDING_BOTTOM;
+		
+		//Check if the height of the object is higher than the object
+//		if((containerGa.getY()+containerGa.getHeight()) > (parentGa.getY()+parentGa.getHeight())  && !onParent && !(parent instanceof Dialogue)){
+//			
+//			int y = (parentGa.getY()+parentGa.getHeight()) - (parentGa.getY()+parentGa.getHeight());
+//			if(y<0) y=0;
+//			int newHeight = parentGa.getHeight();
+//			
+//			y = PADDING_TOP;
+//			newHeight = parentGa.getHeight() - PADDING_TOP - PADDING_BOTTOM;
+//			
+//			
+//			if(!PropertyUtil.isThen(parentContainer) && !PropertyUtil.isElse(parentContainer) && !PropertyUtil.isSequenceHolder(parentContainer)){
+//				newHeight = newHeight - 10;
+//			}
+//			
+//			Graphiti.getGaService().setLocationAndSize(containerShape.getGraphicsAlgorithm(), containerGa.getX(), y, containerGa.getWidth(), newHeight);
+//			anythingChanged = true;
+//		}
+
+		
+		
+		
+//		if(isParentDiagram){
+//			containerGa.setHeight(MIN_HEIGHT);
+//			anythingChanged = true;
+//		}else{
+//			//The height must not be smaller than MIN_HEIGHT
+//			if (containerGa.getHeight() < MIN_HEIGHT) {
+//				rectangleHeight = MIN_HEIGHT;
+//				containerGa.setHeight(MIN_HEIGHT);
+//				anythingChanged = true;
+//			}
+//			
+//			if(containerGa.getHeight() >= max_height && !(parent instanceof Dialogue)){
+//				
+//				rectangleHeight = max_height;
+//				
+//				containerGa.setHeight(max_height);
+//				//rectangle.setHeight(max_height);
+//				anythingChanged = true;
+//			}
+//		}
+
+		// height of visible rectangle (same as invisible rectangle)
+		
+//		if (rectangle!= null && rectangle.getHeight() != containerGa.getHeight()) {
+//			rectangle.setHeight(containerGa.getHeight());
+//			anythingChanged = true;
+//		}
+
+		// width of invisible rectangle
+//		rectangleWidth =containerGa.getWidth();
+//
+//		if(isParentDiagram){
+//			containerGa.setWidth(MIN_WIDTH);
+//			anythingChanged = true;
+//		}else{
+//			//The width must not be smaller than MIN_WIDTH
+//			if (containerGa.getWidth() < MIN_WIDTH) {
+//				rectangleWidth = MIN_WIDTH-2;
+//				containerGa.setWidth(MIN_WIDTH);
+//				anythingChanged = true;
+//			}
+//			if(containerGa.getWidth() > max_width && !(parent instanceof Dialogue)){
+//				
+//				rectangleWidth = max_width;
+//				containerGa.setWidth(max_width);
+//				anythingChanged = true;
+//			}
+//		}
+
+		//If the initial shape is visible, than reduce the size of the shape 
+//		if(initialVisible){
+//			rectangleWidth = containerGa.getWidth() - AddStateChartFeature.INVISIBLE_RECT_LEFT;
+//		}
+		
+		// height of visible rectangle (same as invisible rectangle)
+//		if (rectangle!= null && rectangle.getWidth() != rectangleWidth) {
+//			rectangle.setWidth(rectangleWidth);
+//			anythingChanged = true;
+//		}
+
+//		//Make sure that the shape is not outside of the the parent visible rectangle
+//		if(containerGa.getX() <= parentGa.getX() && !onParent){
+//			containerGa.setX(parentGa.getX());
+//		}
+//		
+//		//
+//		if(containerGa.getY() <= parentGa.getY()+PADDING_TOP  && !onParent){
+//			if(PropertyUtil.isThen(parentContainer) || PropertyUtil.isElse(parentContainer) || PropertyUtil.isSequenceHolder(parentContainer)){
+//				containerGa.setY(0);
+//			}else{
+//				containerGa.setY(parentGa.getY()+PADDING_TOP);
+//			}
+//		}
+//		
+		
+		
+		//If the parent is THEN or ELSE container then set the x and y to 0
+//		if(PropertyUtil.isThen(parentContainer) || PropertyUtil.isElse(parentContainer) || PropertyUtil.isSequenceHolder(parentContainer)){
+//			containerGa.setX(0);
+//			containerGa.setY(0);
+//		}
+
+
+		//Change the size of the inside shapes
+//		if(!isParentDiagram){
+//			Iterator<Shape> iter = containerShape.getChildren().iterator();
+//			while (iter.hasNext()) {
+//
+//				Shape shape = iter.next();
+//				GraphicsAlgorithm graphicsAlgorithm = shape.getGraphicsAlgorithm();
+//				IGaService gaService = Graphiti.getGaService();
+//				IDimension size =gaService.calculateSize(graphicsAlgorithm);
+//				if (rectangleWidth != size.getWidth()) {
+//					if (graphicsAlgorithm  instanceof Polyline) {
+//						Polyline polyline = (Polyline) graphicsAlgorithm;
+//						Point secondPoint = polyline.getPoints().get(1);
+//						Point newSecondPoint =
+//								gaService.createPoint(rectangleWidth,
+//										secondPoint.getY());
+//						polyline.getPoints().set(1, newSecondPoint);
+//						anythingChanged = true;
+//					}  else if(graphicsAlgorithm instanceof Ellipse){
+//						Ellipse ellipse = (Ellipse) graphicsAlgorithm;
+//						ellipse.setWidth(20);
+//						ellipse.setHeight(20);
+//						ellipse.setX(0);
+//					} else if(graphicsAlgorithm instanceof Image){
+//						Image image = (Image)graphicsAlgorithm;
+//						if(initialVisible){
+//							image.setX(AddStateChartFeature.INVISIBLE_RECT_LEFT+20);
+//						}else{
+//							image.setX(20);
+//
+//						}
+//					} else if(graphicsAlgorithm instanceof Text){
+//						Text text = (Text)graphicsAlgorithm;
+//						text.setWidth(rectangleWidth-2);
+//						if(initialVisible){
+//							
+//							text.setX(AddStateChartFeature.INVISIBLE_RECT_LEFT+1);
+//						}else{
+//							text.setX(1);
+//
+//						}
+//					}
+//					
+//					ExecutableContentHoldersUtil.layoutHolders(shape, graphicsAlgorithm, rectangleWidth, initialVisible);
+//				}
+//				
+//			}
+//		}

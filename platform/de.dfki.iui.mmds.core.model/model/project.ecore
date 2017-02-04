@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="project" nsURI="http://www.dfki.de/iui/mmds/core/model/project"
+    nsPrefix="project">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guis" upperBound="-1" eType="ecore:EClass gui.ecore#//Window"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledgeBase" eType="ecore:EClass base.ecore#//KnowledgeBase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogue" lowerBound="1"
+        eType="ecore:EClass dialogue.ecore#//Dialogue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskPlans" upperBound="-1"
+        eType="ecore:EClass task.ecore#//TPlan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grammarRules" upperBound="-1"
+        eType="ecore:EClass grammar_rules.ecore#//Ruleset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityResource" upperBound="-1"
+        eType="ecore:EClass base.ecore#//EntityResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="digitalResources" upperBound="-1"
+        eType="ecore:EClass base.ecore#//DigitalResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappingRules" upperBound="-1"
+        eType="#//MappingRules"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
+        eType="#//JavaPlugin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localization" upperBound="-1"
+        eType="ecore:EClass base.ecore#//LocalizationResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supportedServiceInterfaces"
+        upperBound="-1" eType="#//SiamInternalServiceInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testMessages" eType="#//TestMessageSet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SiamInternalServiceInterface">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This is the declarative description of an interface that is supported by the dialogue application.&#xD;&#xA;The siamId defines the identifier that is used by device attributes of instances of IORepresentation.&#xD;&#xA;If the interface should directly be connected to a service instance, the id of the service instance can be specified in 'serviceInstanceId'.&#xD;&#xA;If the service instance contains more than one services, the name of the addressed service is define in 'serviceName', otherwise the first available service is chosen.&#xD;&#xA;&#xD;&#xA;If serviceInstanceId and serviceName are not defined, the presentation planner tries to find out a matching service based on the other give attributes."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="siamId" lowerBound="1"
+        eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The siamId defines the identifier that is inernally used in siam by the attribute 'device'  in instances of IORepresentation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceInstanceId" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If the interface should directly be connected to a service instance, the id of the service instance can be specified in 'serviceInstanceId'."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If the service instance contains more than one services, the name of the addressed service is defined in 'serviceName', otherwise the first available service is chosen."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modality" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participant" eType="ecore:EClass base.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceType" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initMessages" upperBound="-1"
+        eType="ecore:EClass io.ecore#//OutputMessage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SiamInternalSpeechInputServiceInterface"
+      eSuperTypes="#//SiamInternalServiceInterface">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An interal service interface for speech input. It allows to define an assoicated grammar ruleset."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grammarRulesetId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingRules" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subrules" upperBound="-1"
+        eType="#//MappingSubRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputMappingRules" eSuperTypes="#//MappingRules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//InputMappingRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputMappingRules" eSuperTypes="#//MappingRules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//OutputMappingRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingRule" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass pattern.ecore#//PPattern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputMappingRule" eSuperTypes="#//MappingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
+        eType="ecore:EClass io.ecore#//Hypothesis" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputMappingRule" eSuperTypes="#//MappingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
+        eType="ecore:EClass io.ecore#//OutputRepresentation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappingSubRule" eSuperTypes="#//MappingRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
+        eType="ecore:EClass base.ecore#//BObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaPlugin">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The java plugin element invokes a static java (plugin) method."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestMessageSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
+        eType="ecore:EClass io.ecore#//Message" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

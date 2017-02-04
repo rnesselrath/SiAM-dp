@@ -1,0 +1,22 @@
+#welcomeLabel {
+	display:block;
+	text-align:center;
+	font-size:35pt;
+	color:#008000;
+} 
+
+#worldImage {
+	width:50%;
+}
+
+#citySelectionLabel {
+	display:block;
+	text-align:center;
+	font-size:35pt;
+	color:#800000;
+} 
+
+#cityList {
+	width:500px;
+	font-size:large;
+}

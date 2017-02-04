@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: APPLICATION_NAME
+Bundle-SymbolicName: PLUGIN_NAME;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.osgi.services,
+ de.dfki.iui.mmds.application,
+ de.dfki.iui.mmds.speech_recognition,
+ de.dfki.iui.mmds.io.html
+Bundle-ActivationPolicy: lazy
+Import-Package: org.osgi.framework
+Service-Component: OSGI-INF/component-description.xml

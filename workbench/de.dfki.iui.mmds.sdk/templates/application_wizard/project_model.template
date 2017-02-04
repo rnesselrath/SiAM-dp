@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project:Project xmlns:project="http://www.dfki.de/iui/mmds/core/model/project">
+  <dialogue href="dialogue/APPLICATION_NAME.dialogue#/"/>
+</project:Project>

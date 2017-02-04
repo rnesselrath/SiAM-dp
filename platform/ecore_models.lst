@@ -1,0 +1,12 @@
+.\de.dfki.iui.mmds.core.model\model\base\base.ecore
+.\de.dfki.iui.mmds.core.model\model\io\communicative_functions.ecore
+.\de.dfki.iui.mmds.core.model\model\dialogue\dialogue.ecore
+.\de.dfki.iui.mmds.core.model\model\io\gui.ecore
+.\de.dfki.iui.mmds.core.model\model\io\gui_events.ecore
+.\de.dfki.iui.mmds.core.model\model\io\io.ecore
+.\de.dfki.iui.mmds.core.model\model\pattern\pattern.ecore
+.\de.dfki.iui.mmds.core.model\model\io\primitiveTasks.ecore
+.\de.dfki.iui.mmds.core.model\model\io\references.ecore
+# .\de.dfki.iui.mmds.scxml\model\scxml.ecore
+.\de.dfki.iui.mmds.core.model\model\speech_recognition\srgs.ecore
+.\de.dfki.iui.mmds.core.model\model\io\tangible.ecore

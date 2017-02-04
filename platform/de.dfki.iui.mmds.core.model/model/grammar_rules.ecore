@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="grammar_rules" nsURI="http://www.dfki.de/iui/mmds/core/model/speech_recognition/grammar_rules"
+    nsPrefix="grammar_rules">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Ruleset">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="new_ruleset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" lowerBound="1"
+        eType="ecore:EDataType http://www.w3.org/XML/1998/namespace#//LangType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Utterance" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interpretation" eType="ecore:EClass communicative_functions.ecore#//CommunicativeFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phrases" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EntityType"
+        defaultValueLiteral="static"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//PhraseValuePair" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interpretation" eType="ecore:EClass communicative_functions.ecore#//SemanticContent"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticMapping" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phraseMappings" upperBound="-1"
+        eType="#//PhraseMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTarget" eType="ecore:EClass communicative_functions.ecore#//SemanticContent"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhraseMapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interpretation" upperBound="-1"
+        eType="ecore:EClass communicative_functions.ecore#//SemanticContent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phrases" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhraseValuePair">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phrase" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntityType">
+    <eLiterals name="static"/>
+    <eLiterals name="dynamic" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:EntityResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http://www.dfki.de/iui/mmds/core/model/base" xmlns:io="http://www.dfki.de/iui/mmds/core/model/io" addToKnowledgeManager="true">
+  <content xsi:type="io:ServiceInstance" description="tts" serviceInstanceName="tts">
+    <communicationinfo xsi:type="io:TCPServer" host="localhost" port="20227"/>
+    <services xsi:type="io:SimpleService" serviceName="tts">
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io_interfaces#//ISpeechSynthesis"/>
+      <modalities>SPEECH</modalities>
+    </services>
+  </content>
+  <content xsi:type="io:ServiceInstance" description="Google Glass" serviceInstanceName="glass">
+    <communicationinfo xsi:type="io:HtmlServlet" fragmentName="glass"/>
+    <services xsi:type="io:SimpleService" serviceName="glass">
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIRequest"/>
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent"/>
+      <modalities>GUI</modalities>
+    </services>
+  </content>
+  <content xsi:type="io:ServiceInstance" description="Billboard" serviceInstanceName="billboard">
+    <communicationinfo xsi:type="io:HtmlServlet" fragmentName="billboard"/>
+    <services xsi:type="io:SimpleService" serviceName="billboard">
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIRequest"/>
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent"/>
+      <modalities>GUI</modalities>
+    </services>
+  </content>
+  <content xsi:type="io:ServiceInstance" description="asr" serviceInstanceName="asr">
+    <communicationinfo xsi:type="io:TCPServer" host="localhost" port="20226"/>
+    <services xsi:type="io:SimpleService" serviceName="asr">
+      <serviceType href="http://www.dfki.de/iui/mmds/core/model/io_interfaces#//Speech"/>
+      <modalities>SPEECH</modalities>
+    </services>
+  </content>
+</base:EntityResource>

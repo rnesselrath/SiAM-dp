@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    The Creative Commons CC-BY-NC 4.0 License
+    http://creativecommons.org/licenses/by-nc/4.0/legalcode
+   
+    Creative Commons (CC) by DFKI GmbH
+    - Vanessa Hahn <Vanessa.Hahn@dfki.de>
+    - Robert Nesselrath <rnesselrath@gmail.com>
+   
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+    OTHER DEALINGS IN THE SOFTWARE.
+   
+ -->
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/base"
+            class="de.dfki.iui.mmds.core.model.base.BasePackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="base"
+            class="de.dfki.iui.mmds.core.model.base.util.BaseResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/communicative_functions"
+            class="de.dfki.iui.mmds.core.model.io.communicative_functions.Communicative_functionsPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="communicative_functions"
+            class="de.dfki.iui.mmds.core.model.io.communicative_functions.util.Communicative_functionsResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/dialogue"
+            class="de.dfki.iui.mmds.core.model.dialogue.DialoguePackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="dialogue"
+            class="de.dfki.iui.mmds.core.model.dialogue.util.DialogueResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/earcons"
+            class="de.dfki.iui.mmds.core.model.io.earcons.EarconsPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="earcons"
+            class="de.dfki.iui.mmds.core.model.io.earcons.util.EarconsResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/speech_recognition/grammar_rules"
+            class="de.dfki.iui.mmds.core.model.speech_recognition.grammar_rules.Grammar_rulesPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="grammar_rules"
+            class="de.dfki.iui.mmds.core.model.speech_recognition.grammar_rules.util.Grammar_rulesResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/gui/events"
+            class="de.dfki.iui.mmds.core.model.io.gui_events.GuiEventsPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="guievents"
+            class="de.dfki.iui.mmds.core.model.io.gui_events.util.GuiEventsResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/gui"
+            class="de.dfki.iui.mmds.core.model.io.gui.GuiPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="gui"
+            class="de.dfki.iui.mmds.core.model.io.gui.util.GuiResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io"
+            class="de.dfki.iui.mmds.core.model.io.IoPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="io"
+            class="de.dfki.iui.mmds.core.model.io.util.IoResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io_interfaces"
+            class="de.dfki.iui.mmds.core.model.io_interfaces.Io_interfacesPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="io_interfaces"
+            class="de.dfki.iui.mmds.core.model.io_interfaces.util.Io_interfacesResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/pattern"
+            class="de.dfki.iui.mmds.core.model.pattern.PatternPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="pattern"
+            class="de.dfki.iui.mmds.core.model.pattern.util.PatternResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/primitive_tasks"
+            class="de.dfki.iui.mmds.core.model.primitiveTasks.PrimitiveTasksPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="primitivetasks"
+            class="de.dfki.iui.mmds.core.model.primitiveTasks.util.PrimitiveTasksResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="de.dfki.iui.mmds.modalities.input.primitiveTasks"
+            class="de.dfki.iui.mmds.core.model.primitiveTasks.input.InputPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="de.dfki.iui.mmds.modalities.output.primitiveTasks"
+            class="de.dfki.iui.mmds.core.model.primitiveTasks.output.OutputPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/project"
+            class="de.dfki.iui.mmds.core.model.project.ProjectPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="project"
+            class="de.dfki.iui.mmds.core.model.project.util.ProjectResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/references"
+            class="de.dfki.iui.mmds.core.model.references.ReferencesPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="references"
+            class="de.dfki.iui.mmds.core.model.references.util.ReferencesResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.w3.org/2001/06/grammar"
+            class="de.dfki.iui.mmds.core.model.speech_recognition.grammar.GrammarPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="grammar"
+            class="de.dfki.iui.mmds.core.model.speech_recognition.grammar.util.GrammarResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.w3.org/2001/10/synthesis"
+            class="de.dfki.iui.mmds.core.model.speech_synthesis.SpeechSynthesisPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="speechsynthesis"
+            class="de.dfki.iui.mmds.core.model.speech_synthesis.util.SpeechSynthesisResourceFactoryImpl"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/tangible"
+            class="de.dfki.iui.mmds.core.model.io.tangible.TangiblePackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="tangible"
+            class="de.dfki.iui.mmds.core.model.io.tangible.util.TangibleResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/json"
+            class="de.dfki.iui.mmds.core.model.json.JsonPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/task"
+            class="de.dfki.iui.mmds.core.model.task.TaskPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated siam -->
+      <parser
+            type="task"
+            class="de.dfki.iui.mmds.core.model.task.util.TaskResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated siam -->
+      <package
+            uri="http://www.dfki.de/iui/mmds/core/model/io/communicative_functions/backchannel"
+            class="de.dfki.iui.mmds.core.model.backchannel.BackchannelPackage"
+            genModel="model/siam.genmodel"/>
+   </extension>
+
+</plugin>

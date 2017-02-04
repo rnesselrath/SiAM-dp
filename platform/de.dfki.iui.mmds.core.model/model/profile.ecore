@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="profile" nsURI="http://www.dfki.de/iui/mmds/core/model/profile"
+    nsPrefix="profile">
+  <eClassifiers xsi:type="ecore:EClass" name="Profile" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProfile" eSuperTypes="#//Profile">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A system profile specifies property values for long term processing and not for single output acts."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speechVolume" eType="#//SPEECH_VOLUME"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speechSpeed" eType="#//SPEECH_SPEED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speechLength" eType="#//SPEECH_LENGTH"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speechVocabulary" eType="#//AGE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patience" eType="#//PATIENCE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputComplexity" eType="#//COMPLEXITY"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentProfile" eSuperTypes="#//Profile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="#//ENV_VOLUME"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="luminosity" eType="#//LUMINOSITY"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserProfile" eSuperTypes="#//Profile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="person" eType="ecore:EClass base.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="#//AGE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//GENDER"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="experience" eType="#//EXPERIENCE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disability" upperBound="-1"
+        eType="#//DISABILITY"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patience" eType="#//PATIENCE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SPEECH_VOLUME">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="QUIET"/>
+    <eLiterals name="LOUD" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SPEECH_SPEED">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="SLOW"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SPEECH_LENGTH">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="BREVITY"/>
+    <eLiterals name="VERBOSITY" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AGE">
+    <eLiterals name="ADULT" value="2"/>
+    <eLiterals name="BABY"/>
+    <eLiterals name="CHILD" value="1"/>
+    <eLiterals name="SENIOR" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PATIENCE">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="IMPATIENT"/>
+    <eLiterals name="PATIENT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ENV_VOLUME">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="QUIET"/>
+    <eLiterals name="LOUD" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LUMINOSITY">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="DARK"/>
+    <eLiterals name="BRIGHT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GENDER">
+    <eLiterals name="MALE"/>
+    <eLiterals name="FEMALE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EXPERIENCE">
+    <eLiterals name="UNEXPERIENCED"/>
+    <eLiterals name="EXPERIENCED" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DISABILITY">
+    <eLiterals name="NONE"/>
+    <eLiterals name="BLIND" value="1"/>
+    <eLiterals name="DEAF" value="2"/>
+    <eLiterals name="DYSCHROMATOPSIA" value="3"/>
+    <eLiterals name="INVALID_CHAIR" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="COMPLEXITY">
+    <eLiterals name="NORMAL" value="1"/>
+    <eLiterals name="SIMPLE"/>
+    <eLiterals name="COMPLEX" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

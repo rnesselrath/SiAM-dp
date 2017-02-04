@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="earcons" nsURI="http://www.dfki.de/iui/mmds/core/model/io/earcons"
+    nsPrefix="earcons">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AuditoryIcon">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A request to output a non-speech audio signal representing a real-world concept.&#xD;&#xA;&quot;Auditory icons are brief sounds that represent objects, functions, and actions. They take advantage of the user�s prior knowledge and natural auditory associations with sound sources and causes. They are meant to be the auditory equivalent of visual icons that are broadly used in personal computing, representing objects or processes through graphical symbols. [...] As an example, the sound of running water or a paper towel dispenser can be used to represent restrooms.&quot; (Dingler et al., 2008)"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Earcon">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A request to output a non-speech cue with a certain semantics. Examples: warning signal, information signal, recording signal etc.&#xD;&#xA;&quot;For many items where there is no clear iconic representation, earcons can yield an effective sonification. Earcons are abstract, synthetic and mostly musical tones or sound patterns that can be used in structured combinations. They are non-verbal audio messages, which are 'composed of motives, which are short, rhythmic sequences of pitches with variable intensity, timbre and register'. [...] Earcons are used, for example, as a method to add context to a menu in a user interface, helping the user maintain awareness of where in the tree he or she is currently located. Nevertheless, the relationship between the earcon and the object has a more or less metaphorical character. A three-note pattern representing the deletion of a file through decreasing loudness and pitch is an example of an earcon for deleting a file, with the diminishing loudness and pitch of the sound representing the deletion.&quot; (Dingler et al., 2008)&#xD;&#xA;This earcon model is based on Blattner, Sumikawa and Greenberg (1989)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="construction" eType="#//EarconStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Structure of this earcon. There are multiple ways of describing the structure, represented by the derived types.&#xD;&#xA;Giving a structure description is optional. If none is given, the output module can derive one from the communicative function of the message. I.e. it will choose an earcon that best matches the character."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If no exact structure description is given for this earcon, it will be based on the communicative function and specification of severity. For example, a warning can be light or severe."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The global volume to play the earcon at. The default is full (1)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The global speed to play the earcon at. The default is normal (1)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EarconStructure" abstract="true" eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for the multiple ways to describe the structure of an earcon. This class is merely used to indicate the valid descriptions."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceEarcon" eSuperTypes="#//EarconStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes a reference to an earcon stored in a different place, e.g. with the playback device."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Lookup ID of the earcon. Used if the output component has a library / lookup table of stored earcons."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType base.ecore#//Url">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URI from which the earcon can be retrieved. This should be a pointer to an XML document containing an EarconStructure."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlainEarcon" eSuperTypes="#//EarconStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes the shape and attributes of a simple earcon."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="note" upperBound="-1" eType="#//EarconNote">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The sequence of notes that makes up the earcon."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="register" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The register to play the earcon at, in Hz.&#xD;&#xA;&quot;Register refers to the relative highllow of a pitch or a set of pitches. An earcon in the low register sounds &quot;lown; one in the high register sounds &quot;high.&quot; If we label the eight octaves in our tonal system 1 to 8, from low to high respectively, we can define an earcon in a low register, Octave 2, for example, as one with pitches entirely contained in one of the lower octaves. Likewise, a motive with medium register has pitches from Octaves 4 or 5, and one with high register has pitches from Octave 7. Register can be creatively manipulated to indicate vertical location or direction in a sightlsound interface. Earcons constructed with pitch sequences contained in the low, medium, or high registers are easily differentiated and, therefore, easily perceived. An earcon can be made to sound very different by changing its register.&quot; (Blattner, Sumikawa and Greenberg, 1989)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dynamics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The relative volume to play the earcon at.&#xD;&#xA;&quot;Dynamics refers to the relative loudness or softness of an earcon. One can differentiate the relative loudness or softness of an earcon by making its dynamics either constant or variable. Thus, an earcon can be loud for the duration of the motive, soft for the duration of the motive, graded from loud to soft, and graded from soft to loud. Any combination of these four is also possible.&quot;  (Blattner, Sumikawa and Greenberg, 1989)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EarconNote" eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes a single note / tone in the earcon."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Pitch of the note in Hz.&#xD;&#xA;&quot;The pitch sequence of motives can take a variety of forms because so many pitches are available. Most computer users are familiar with the tonal system of eight octaves of 12 pitches each. In theory then, 96 unique one-pitch earcons, 9,216 two-pitch motives, 884,736 three-pitch motives, and 84,934,656 four-pitch motives are possible. In reality, however, it is difficult to distinguish the fundamental frequency of very low and very high pitches. This, along with the difficulty of reproducing such extreme frequencies, eliminates these outer octaves from consideration. In addition, motives constructed of random pitches from these 96 available are undesirable. The pitches chosen for a particular motive are important. All pitches in a motive should be chosen from the same octave to avoid problems inherent in octave perception. This also facilitates changing the register of the pitch sequence.&quot; (Blattner, Sumikawa and Greenberg, 1989)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Length of the tone in milliseconds. This is part of the description of the rhythms of the earcon.&#xD;&#xA;&quot;Rhythm is the most prominent characteristic of a motive. Listeners respond more readily to rhythm than to any other musical parameter. Kerman (1980) stated that 'No single feature of music, not even melody, determines the effect of music more crucially than the timing and weighting of notes' (p. 5). In music, duration is indicated with note values. Common time divisions and their iconic notations are listed in Figure 7. A whole note is generally given the longest time value.&quot; (Blattner, Sumikawa and Greenberg, 1989)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Length of the silence after the note in milliseconds. This is part of the description of the rhythms of the earcon."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intensityBegin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes the dynamics of the earcon at this specific note. More specifically, this value refers to the volume at the beginning of the tone."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intensityEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes the dynamics of the earcon at this specific note. More specifically, this value refers to the volume at the end of the tone. If the volumes differ between beginning and end, a fade effect is generated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timbre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes the general sound (or &quot;color&quot;) that is used to generate the signal. Basic timbres are &quot;sine&quot;, &quot;square&quot;, and &quot;sawtooth&quot;. Furthermore, the output component may have a library of other sounds and instruments that can be used.&#xD;&#xA;&quot;Timbre is a tonal attribute that refers to the quality or 'color' of a sound. Musical instruments sound different because the physical makeup of their sound differs. For example, the same note played on a piano and clarinet sounds different because each instrument has its own peculiar set of waveforms and harmonics. The timbre of a sound is usually described with adjectives such as bright, warm, harsh, hollow, twangy, or brassy. Even though timbre is difficult to describe and notate precisely, it is one of the most immediate and easily recognizable characteristics of sound (Kerman, 1980). Earcons assembled by novice users should be made from a set of brisic, easily differentiated waveforms. The sinusoidal waveform will be 'timbreless' because it is pure, unmodulated sound. The sine wave lacks timbre in the same sense that white lacks color. To alter our perception of a given earcon, we can simply change the earcon's waveform, thereby producing a different timbre.&quot; (Blattner, Sumikawa and Greenberg, 1989)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CombinedEarcon" eSuperTypes="#//EarconStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An earcon that is created by sequencing two or more existing earcons."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        upperBound="-1" eType="#//EarconStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Earcons to be joined."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InheritedEarcon" eSuperTypes="#//EarconStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An earcon that is created by &quot;inheriting&quot; from another one (see Blattner, Sumikawa and Greenberg, 1989)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" lowerBound="1" eType="#//EarconStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base earcon, which can be incompletely specified (e.g. without pitch)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layer" upperBound="-1"
+        eType="#//InheritedEarconLayer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="One or more layers of changes applied to the base. Each layer is appended to the output or not."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="includeBase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True to include the base in the output."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InheritedEarconLayer" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="earcon" lowerBound="1"
+        eType="#//PlainEarcon">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Layer-specific earcon, which can be incompletely specified (e.g. pitch only). Only the specified attributes will be overridden in the base."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="include" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="True to include this inheritance layer in the actual output, or False to merely apply the modification."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformedEarcon" eSuperTypes="#//EarconStructure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An earcon that is created by transforming another one (see Blattner, Sumikawa and Greenberg, 1989)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" lowerBound="1" eType="#//EarconStructure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base earcon that is being transformed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modification" lowerBound="1"
+        eType="#//PlainEarcon">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The transformation being applied. Only The attributes specified in this object will be changed in a relative (additive) manner."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Spearcon">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A request to output a speech with additional effects processing, called Spearcon.&#xD;&#xA;&quot;Spearcons use spoken phrases sped up until they may no longer be recognized as speech. Building on the simplicity of creating speech cues mentioned earlier, spearcons can be created automatically by using basic text-to-speech software and an algorithm to speed up the phrase. Each spearcon is unique due to the specific underlying speech phrase, which allows them to be both distinct but at the same time allows similar phrases to form families of related sounds, much like earcons.&quot; (Dingler et al., 2008)"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Semanticon">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Refers to speech and non-verbal audio signal (e.g. earcon) that are combined using some signal processing method. Both speech and signal have to be included separately, while this concept merely describes how they should be combined."/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

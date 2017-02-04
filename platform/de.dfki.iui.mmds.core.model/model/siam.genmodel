@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.dfki.iui.mmds.core.model/src" creationIcons="false"
+    modelPluginID="de.dfki.iui.mmds.core.model" modelName="Siam" modelPluginClass=""
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" rootImplementsInterface=""
+    featureMapWrapperClass="" booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" providerRootExtendsClass="" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+    classNamePattern="" operationReflection="true" importOrganizing="true">
+  <foreignModel>base.ecore</foreignModel>
+  <foreignModel>communicative_functions.ecore</foreignModel>
+  <foreignModel>dialogue.ecore</foreignModel>
+  <foreignModel>earcons.ecore</foreignModel>
+  <foreignModel>grammar_rules.ecore</foreignModel>
+  <foreignModel>gui_events.ecore</foreignModel>
+  <foreignModel>gui.ecore</foreignModel>
+  <foreignModel>io_interfaces.ecore</foreignModel>
+  <foreignModel>io.ecore</foreignModel>
+  <foreignModel>pattern.ecore</foreignModel>
+  <foreignModel>primitive_task.ecore</foreignModel>
+  <foreignModel>project.ecore</foreignModel>
+  <foreignModel>references.ecore</foreignModel>
+  <foreignModel>srgs.ecore</foreignModel>
+  <foreignModel>synthesis.ecore</foreignModel>
+  <foreignModel>tangible.ecore</foreignModel>
+  <foreignModel>json.ecore</foreignModel>
+  <foreignModel>task.ecore</foreignModel>
+  <foreignModel>backchannel.ecore</foreignModel>
+  <genPackages prefix="Base" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="base.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//UnitType">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitSecond"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitMinute"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitHour"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitDay"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitWeek"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitMonth"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//UnitType/unitYear"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//Month">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/JANUARY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/FEBRUARY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/MARCH"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/APRIL"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/MAY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/JUNE"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/JULY"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/AUGUST"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/SEPTEMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/OCTOBER"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/NOVEMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//Month/DECEMBER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="base.ecore#//DayOfWeek">
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Monday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Tuesday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Wednesday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Thursday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Friday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Saturday"/>
+      <genEnumLiterals ecoreEnumLiteral="base.ecore#//DayOfWeek/Sunday"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="base.ecore#//Url"/>
+    <genDataTypes ecoreDataType="base.ecore#//Date"/>
+    <genDataTypes ecoreDataType="base.ecore#//TimeStamp"/>
+    <genDataTypes ecoreDataType="base.ecore#//TimeSpan"/>
+    <genDataTypes ecoreDataType="base.ecore#//BBoolean"/>
+    <genDataTypes ecoreDataType="base.ecore#//BByte"/>
+    <genDataTypes ecoreDataType="base.ecore#//BChar"/>
+    <genDataTypes ecoreDataType="base.ecore#//BDouble"/>
+    <genDataTypes ecoreDataType="base.ecore#//BFloat"/>
+    <genDataTypes ecoreDataType="base.ecore#//BInteger"/>
+    <genDataTypes ecoreDataType="base.ecore#//BLong"/>
+    <genDataTypes ecoreDataType="base.ecore#//BShort"/>
+    <genDataTypes ecoreDataType="base.ecore#//BString"/>
+    <genDataTypes ecoreDataType="base.ecore#//UnitTypeObject"/>
+    <genDataTypes ecoreDataType="base.ecore#//MonthObject"/>
+    <genDataTypes ecoreDataType="base.ecore#//DayOfWeekObject"/>
+    <genClasses ecoreClass="base.ecore#//BObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//BObject/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Entity/ENTITY_ID"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//KnowledgeBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//KnowledgeBase/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//KnowledgeBaseEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//KnowledgeBaseEntry/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//KnowledgeBaseEntry/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//KnowledgeBaseEntry/source"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Session" labelFeature="#//base/Session/sessionID">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//Session/participants"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Session/sessionID"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//NumberEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//NumberEntity/number"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Nothing"/>
+    <genClasses ecoreClass="base.ecore#//NamedEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//NamedEntity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Resource/id"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//EntityResource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//EntityResource/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//EntityResource/addToKnowledgeManager"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//LocalizationResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//LocalizationResource/language"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//LocalizationResource/entries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="base.ecore#//DialogParticipant">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference base.ecore#//DialogParticipant/userInterfaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DialogParticipant/participantId"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Person/firstname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Person/lastname"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//CyberPhysicalEnvironment"/>
+    <genClasses ecoreClass="base.ecore#//DigitalResource"/>
+    <genClasses ecoreClass="base.ecore#//PhysicalResource"/>
+    <genClasses ecoreClass="base.ecore#//LocatableEntity">
+      <genTypeParameters ecoreTypeParameter="base.ecore#//LocatableEntity/T"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference base.ecore#//LocatableEntity/location"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//ServiceResource"/>
+    <genClasses ecoreClass="base.ecore#//StyleSheet"/>
+    <genClasses ecoreClass="base.ecore#//MediaResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//MediaResource/mimeType"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Picture"/>
+    <genClasses ecoreClass="base.ecore#//Video"/>
+    <genClasses ecoreClass="base.ecore#//Document"/>
+    <genClasses ecoreClass="base.ecore#//Audio"/>
+    <genClasses ecoreClass="base.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//Event/timestamp"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//Location"/>
+    <genClasses ecoreClass="base.ecore#//GeoCoordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//GeoCoordinate/lat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//GeoCoordinate/long"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//CartesianCoordinate2D">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//CartesianCoordinate2D/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//CartesianCoordinate2D/y"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//CartesianCoordinate3D">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//CartesianCoordinate3D/z"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//PostalAddress"/>
+    <genClasses ecoreClass="base.ecore#//DigitalLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DigitalLocation/url"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//PhysicalLocation"/>
+    <genClasses ecoreClass="base.ecore#//StringToBStringMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//StringToBStringMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//StringToBStringMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="base.ecore#//DateTimeDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/unitType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/second"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/minute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/day"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/dayOfWeek"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/dayOfYear"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute base.ecore#//DateTimeDescription/year"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Communicative_functions" basePackage="de.dfki.iui.mmds.core.model.io"
+      resource="XML" disposableProviderFactory="true" ecorePackage="communicative_functions.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="communicative_functions.ecore#//ResolveState">
+      <genEnumLiterals ecoreEnumLiteral="communicative_functions.ecore#//ResolveState/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="communicative_functions.ecore#//ResolveState/RESOLVED"/>
+      <genEnumLiterals ecoreEnumLiteral="communicative_functions.ecore#//ResolveState/UNRESOLVED"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="communicative_functions.ecore#//ResolveStateObject"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//SemanticContent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference communicative_functions.ecore#//SemanticContent/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference communicative_functions.ecore#//SemanticContent/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//SemanticContent/resolved"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//SemanticContent/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//SemanticContent/validity"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//CommunicativeFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference communicative_functions.ecore#//CommunicativeFunction/semanticContent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//CommunicativeFunction/isEllipsis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//CommunicativeFunction/knowledgeItem"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//GeneralPurposeCommunicativeFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//InformationTransferFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//InformationSeekingFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//InformationProvidingFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//ActionDiscussionFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Commissive"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Directive"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Question"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//SetQuestion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//PropositionalQuestion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//CheckQuestion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveCheckQuestion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeCheckQuestion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//ChoiceQuestion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Inform"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Agreement"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Disagreement"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Answer"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Correction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Confirm"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Disconfirm"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Offer"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//AddressSuggestion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Promise"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Threat"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AddressRequest"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AcceptRequest"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//DeclineRequest"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AcceptSuggestion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//DeclineSuggestion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Request">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute communicative_functions.ecore#//Request/requestInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="communicative_functions.ecore#//Instruct"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AddressOffer"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AcceptOffer"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//DeclineOffer"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Suggestion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//DimensionSpecificCommunicativeFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//DialogueControlFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//FeedbackFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//AutoFeedback"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//AlloFeedback"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//InteractionManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//TurnManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//TimeManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//ContactManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//OwnCommunicationManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//PartnerCommunicationManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//DiscourseStructureManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//SocialObligationManagementFunction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Salutation"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//SelfIntroduction"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Apologizing"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Gratitude"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//Valediction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//InitialGreeting"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ReturnGreeting"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//InitialSelfIntroduction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ReturnSelfIntroduction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Apology"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ApologyDownplay"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Thanking"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ThankingDownplay"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//InitialGoodbye"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ReturnGoodbye"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Opening"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Preclosing"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TopicIntroduction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TopicShiftAnnouncement"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TopicShift"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Completion"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//CorrectMisspeaking"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ErrorSignaling"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Retraction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//SelfCorrection"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ContactCheck"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ContactIndication"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Stalling"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//Pausing"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//TurnUnitInitialFuntion"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//TurnUnitFinalFunction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnAccept"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnGrab"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnTake"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnAssign"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnKeep"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//TurnRelease"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//FeedbackElicitationFunction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//AttentionFeedbackElicitation"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PerceptionFeedbackElicitation"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//InterpretationFeedbackElicitation"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//EvaluationFeedackElicitation"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//ExecutionFeedbackElicitation"/>
+    <genClasses image="false" ecoreClass="communicative_functions.ecore#//FeedbackGivingFunction"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveExecutionAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeExecutionAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveEvaluationAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeEvaluationAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveInterpretationAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeInterpretationAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositivePerceptionAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativePerceptionAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeAttentionAlloFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveExecutionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeExecutionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveEvaluationAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeEvaluationAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositivePerceptionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativePerceptionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveInterpretationAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeInterpretationAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveAttentionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//NegativeAttentionAutoFeedback"/>
+    <genClasses ecoreClass="communicative_functions.ecore#//PositiveAttentionAlloFeedback"/>
+  </genPackages>
+  <genPackages prefix="Dialogue" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="dialogue.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dialogue.ecore#//OperationType">
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//OperationType/UNSPECIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//OperationType/SET"/>
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//OperationType/APPEND"/>
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//OperationType/PREPEND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dialogue.ecore#//HistoryType">
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//HistoryType/shallow"/>
+      <genEnumLiterals ecoreEnumLiteral="dialogue.ecore#//HistoryType/deep"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="dialogue.ecore#//Class"/>
+    <genClasses ecoreClass="dialogue.ecore#//Dialogue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Dialogue/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Dialogue/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//DialogueDesignerElement"
+        labelFeature="#//dialogue/DialogueDesignerElement/displayName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//DialogueDesignerElement/displayName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//DialogueDesignerElement/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//Node" labelFeature="#//dialogue/DialogueDesignerElement/displayName"/>
+    <genClasses ecoreClass="dialogue.ecore#//CondEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//CondEvent/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//CondEvent/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//CondEvent/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//InstanceCondEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceCondEvent/instanceMatchCondition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//InstanceMatchCondition"/>
+    <genClasses ecoreClass="dialogue.ecore#//InstanceMatchConditionFormula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceMatchConditionFormula/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceMatchConditionFormula/cond"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//InstanceMatchConditionAtom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceMatchConditionAtom/instanceExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceMatchConditionAtom/instance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceMatchConditionAtom/pattern"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//ExecutableContent"/>
+    <genClasses ecoreClass="dialogue.ecore#//Raise">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Raise/event"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Send">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Send/outputRequest"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Log">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Log/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Log/label"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Assign">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Assign/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Assign/to"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//InstanceAssign">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceAssign/to"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceAssign/instance"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//InstanceModifyFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceModifyFeature/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceModifyFeature/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceModifyFeature/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceModifyFeature/object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//InstanceModifyFeature/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//InstanceModifyFeature/operationType"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//Reference/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Delay">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Delay/duration"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//IAdaptable"/>
+    <genClasses ecoreClass="dialogue.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Variable/default"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//Variable/EmfType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Variable/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//If">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//If/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//If/elseIf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//If/else"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//If/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//ElseIf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//ElseIf/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//ElseIf/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Else">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Else/content"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Sequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Sequence/content"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Decision">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Decision/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Decision/else"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//Decision/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//DoWhile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//DoWhile/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//DoWhile/body"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//While">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//While/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//While/body"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//ForEach"/>
+    <genClasses ecoreClass="dialogue.ecore#//WaitForEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//WaitForEvent/event"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//ExecutableContentNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//ExecutableContentNode/content"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//StateChart"/>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//AbstractState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//AbstractState/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//State/onEntry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//State/onExit"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//AbstractCompositeState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//AbstractCompositeState/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//AbstractCompositeState/historyState"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//CompositeState">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//CompositeState/initialState"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//ParallelState"/>
+    <genClasses ecoreClass="dialogue.ecore#//FinalState"/>
+    <genClasses ecoreClass="dialogue.ecore#//HistoryState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dialogue.ecore#//HistoryState/type"/>
+    </genClasses>
+    <genClasses ecoreClass="dialogue.ecore#//Transition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dialogue.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dialogue.ecore#//Transition/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Transition/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//Transition/onTrigger"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//SourceState">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dialogue.ecore#//SourceState/transitions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dialogue.ecore#//TargetState"/>
+  </genPackages>
+  <genPackages prefix="Earcons" basePackage="de.dfki.iui.mmds.core.model.io" resource="XML"
+      disposableProviderFactory="true" ecorePackage="earcons.ecore#/">
+    <genClasses ecoreClass="earcons.ecore#//AuditoryIcon"/>
+    <genClasses ecoreClass="earcons.ecore#//Earcon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//Earcon/construction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//Earcon/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//Earcon/volume"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//Earcon/speed"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="earcons.ecore#//EarconStructure"/>
+    <genClasses ecoreClass="earcons.ecore#//ReferenceEarcon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//ReferenceEarcon/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//ReferenceEarcon/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//PlainEarcon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//PlainEarcon/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//PlainEarcon/register"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//PlainEarcon/dynamics"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//EarconNote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/pause"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/intensityBegin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/intensityEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//EarconNote/timbre"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//CombinedEarcon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//CombinedEarcon/element"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//InheritedEarcon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//InheritedEarcon/base"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//InheritedEarcon/layer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//InheritedEarcon/includeBase"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//InheritedEarconLayer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//InheritedEarconLayer/earcon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute earcons.ecore#//InheritedEarconLayer/include"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//TransformedEarcon">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//TransformedEarcon/base"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference earcons.ecore#//TransformedEarcon/modification"/>
+    </genClasses>
+    <genClasses ecoreClass="earcons.ecore#//Spearcon"/>
+    <genClasses ecoreClass="earcons.ecore#//Semanticon"/>
+  </genPackages>
+  <genPackages prefix="Grammar_rules" basePackage="de.dfki.iui.mmds.core.model.speech_recognition"
+      resource="XML" disposableProviderFactory="true" ecorePackage="grammar_rules.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="grammar_rules.ecore#//EntityType">
+      <genEnumLiterals ecoreEnumLiteral="grammar_rules.ecore#//EntityType/static"/>
+      <genEnumLiterals ecoreEnumLiteral="grammar_rules.ecore#//EntityType/dynamic"/>
+    </genEnums>
+    <genClasses ecoreClass="grammar_rules.ecore#//Ruleset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Ruleset/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//Ruleset/rules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Ruleset/language"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="grammar_rules.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Rule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Rule/enabled"/>
+    </genClasses>
+    <genClasses ecoreClass="grammar_rules.ecore#//Utterance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//Utterance/interpretation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Utterance/phrases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//Utterance/annotation"/>
+    </genClasses>
+    <genClasses ecoreClass="grammar_rules.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//Entity/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//Entity/entries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//Entity/interpretation"/>
+    </genClasses>
+    <genClasses ecoreClass="grammar_rules.ecore#//SemanticMapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//SemanticMapping/phraseMappings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//SemanticMapping/mappingTarget"/>
+    </genClasses>
+    <genClasses ecoreClass="grammar_rules.ecore#//PhraseMapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference grammar_rules.ecore#//PhraseMapping/interpretation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//PhraseMapping/phrases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//PhraseMapping/description"/>
+    </genClasses>
+    <genClasses ecoreClass="grammar_rules.ecore#//PhraseValuePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//PhraseValuePair/phrase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute grammar_rules.ecore#//PhraseValuePair/value"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="GuiEvents" basePackage="de.dfki.iui.mmds.core.model.io" resource="XML"
+      disposableProviderFactory="true" ecorePackage="gui_events.ecore#/">
+    <genClasses image="false" ecoreClass="gui_events.ecore#//GUIEventData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui_events.ecore#//GUIEventData/targetId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui_events.ecore#//GUIEventData/value"/>
+    </genClasses>
+    <genClasses ecoreClass="gui_events.ecore#//ClickEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//DblClickEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//MouseDownEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//MouseMoveEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//MouseOverEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//MouseOutEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//MouseUpEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//KeyPressEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//KeyUpEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//KeyDownEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//ChangeEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui_events.ecore#//ChangeEvent/index"/>
+    </genClasses>
+    <genClasses ecoreClass="gui_events.ecore#//BlurEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//FocusEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//SelectTextEvent"/>
+    <genClasses ecoreClass="gui_events.ecore#//SubmitEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui_events.ecore#//SubmitEvent/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="gui_events.ecore#//DialogEvent"/>
+  </genPackages>
+  <genPackages prefix="Gui" basePackage="de.dfki.iui.mmds.core.model.io" resource="XML"
+      disposableProviderFactory="true" ecorePackage="gui.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//Alignment">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//Alignment/Left"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//Alignment/Center"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//Alignment/Right"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//VAlignment">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//VAlignment/Top"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//VAlignment/Middle"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//VAlignment/Bottom"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//Orientation">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//Orientation/Horizontal"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//Orientation/Vertical"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//ImageFillModes">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//ImageFillModes/Original"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//ImageFillModes/Stretched"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//ImageFillModes/Zoomed"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//ImageFillModes/Tiled"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//DirectionHV">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DirectionHV/horizontal"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DirectionHV/vertical"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gui.ecore#//DialogueButtons">
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/okOnly"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/okCancel"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/abortRetryIgnore"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/yesNoCancel"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/yesNo"/>
+      <genEnumLiterals ecoreEnumLiteral="gui.ecore#//DialogueButtons/retryCancel"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="gui.ecore#//GUIRequest"/>
+    <genClasses ecoreClass="gui.ecore#//GUIEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//GUIEvent/eventData"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GUIApplication">
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference gui.ecore#//GUIApplication/window"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GUIApplication/applicationId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//GUIApplication/styleResource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GUIUpdate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//GUIUpdate/updates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GUIUpdate/applicationId"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GUIUpdate/validated"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//UpdateInfo"/>
+    <genClasses ecoreClass="gui.ecore#//WindowUpdate">
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference gui.ecore#//WindowUpdate/window"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//StyleSheetUpdate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//StyleSheetUpdate/styleResource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RemoveUIElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//RemoveUIElement/elementId"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//AddUIElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AddUIElement/parentId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//AddUIElement/newElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//AddUIElement/newElementRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AddUIElement/position"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//AddTableCell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AddTableCell/columnPosition"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RemoveTableCell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//RemoveTableCell/removeRow"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//MoveUIElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MoveUIElement/newParentId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MoveUIElement/elementId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MoveUIElement/position"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//UIElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/enabled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//UIElement/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//UIElement/supportedEvents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/styleNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/y"/>
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference gui.ecore#//UIElement/semanticContent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//UIElement/adapter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElement/tooltip"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//SupportedEvent">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//SupportedEvent/interpretation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//SupportedEvent/eventType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//SupportedEvent/annotation"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//AbstractContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//AbstractContainer/arrayAdapter"/>
+      <genOperations ecoreOperation="gui.ecore#//AbstractContainer/contains"/>
+      <genOperations ecoreOperation="gui.ecore#//AbstractContainer/addChild">
+        <genParameters ecoreParameter="gui.ecore#//AbstractContainer/addChild/uiElement"/>
+      </genOperations>
+      <genOperations ecoreOperation="gui.ecore#//AbstractContainer/addChild.1">
+        <genParameters ecoreParameter="gui.ecore#//AbstractContainer/addChild.1/beforeIndex"/>
+        <genParameters ecoreParameter="gui.ecore#//AbstractContainer/addChild.1/uiElement"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//Container/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Window">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Window/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//Window/plugins"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ElementAdapter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ElementAdapter/pattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ElementAdapter/adapterMapping"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//AdapterMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AdapterMapping/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AdapterMapping/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ArrayAdapter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ArrayAdapter/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ArrayAdapter/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ArrayAdapter/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GridContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//GridContainer/row"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Canvas"/>
+    <genClasses ecoreClass="gui.ecore#//Form"/>
+    <genClasses ecoreClass="gui.ecore#//VBox"/>
+    <genClasses ecoreClass="gui.ecore#//HBox"/>
+    <genClasses ecoreClass="gui.ecore#//Div">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute gui.ecore#//Div/content"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GridRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridRow/rowId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridRow/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridRow/isPercentage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//GridRow/item"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GridItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/isPercentage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//GridItem/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/rowSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/columnSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/alignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/valignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/styleNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GridItem/id"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GridHeaderItem"/>
+    <genClasses ecoreClass="gui.ecore#//HTMLView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//HTMLView/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//HTMLView/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//HTMLView/loadingIndicator"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//DisplayContextView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DisplayContextView/displayContextName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//Layout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Layout/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Layout/width"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//Layout/margin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Layout/horizontalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Layout/verticalAlignment"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Margin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Margin/top"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Margin/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Margin/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Margin/bottom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Margin/isPercentage"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Size">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Size/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Size/width"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//AbsoluteLayout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbsoluteLayout/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbsoluteLayout/z"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbsoluteLayout/y"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//FlowLayout"/>
+    <genClasses ecoreClass="gui.ecore#//ToolTip">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ToolTip/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ToolTip/element"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Label/text"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//TextInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//TextInput/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//TextInput/multiLine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//TextInput/softKeyboard"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//LabeledTextInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//LabeledTextInput/label"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RichTextInput"/>
+    <genClasses ecoreClass="gui.ecore#//List">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//List/allowMultipleSelection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//List/item"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//List/selectedIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ListItem" labelFeature="#//gui/ListItem/label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItem/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItem/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItem/selected"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ComboBox"/>
+    <genClasses ecoreClass="gui.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Button/label"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//SubmitButton"/>
+    <genClasses ecoreClass="gui.ecore#//CheckBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//CheckBox/checked"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RadioButton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//RadioButton/radioGroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//RadioButton/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//RadioButton/checked"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ToggleButton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ToggleButton/isSelected"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ImageButton">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//ImageButton/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ButtonBar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ButtonBar/button"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ButtonBar/orientation"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ColorPicker"/>
+    <genClasses ecoreClass="gui.ecore#//ProgressBar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ProgressBar/percentage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ProgressBar/determinate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ProgressBar/max"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Image/smooth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Image/fillMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//Image/loadingIndicator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Image/canManipulate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//Image/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ImageGallery">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//ImageGallery/image"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//ImageGallery/buttonBar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ImageGallery/isSlideShow"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//MediaPlayer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/isPlaying"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//MediaPlayer/media"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/autoPlay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/showControls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//MediaPlayer/visible"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//Spinner"/>
+    <genClasses ecoreClass="gui.ecore#//NumericStepper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//NumericStepper/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//NumericStepper/maxValue"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//Scrollbar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Scrollbar/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Scrollbar/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Scrollbar/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//Scrollbar/orientation"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//CalendarView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//CalendarView/displayMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//CalendarView/date"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//SoftKeyboard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/keyboardLayout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/useDictionary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/dictionaryLanguage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/dictionary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//SoftKeyboard/enableSpeechInputIcon"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//AbstractDialogBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbstractDialogBox/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbstractDialogBox/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//AbstractDialogBox/visible"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//DialogBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DialogBox/modal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DialogBox/buttons"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//CustomDialog">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//CustomDialog/element"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//FileChooser"/>
+    <genClasses ecoreClass="gui.ecore#//TabItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//TabItem/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//TabItem/element"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//TabView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//TabView/items"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gui.ecore#//UIElementUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElementUpdate/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElementUpdate/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElementUpdate/styleNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//UIElementUpdate/tooltip"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gui.ecore#//UIElementUpdate/styleProps"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//TextInputUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//TextInputUpdate/text"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//LabeledTextInputUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//LabeledTextInputUpdate/label"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RichTextInputUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//ColorPickerUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//LabelUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//LabelUpdate/text"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ListUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListUpdate/allowMultipleSelection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListUpdate/selectedIndex"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ComboboxUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//ListItemUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItemUpdate/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItemUpdate/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ListItemUpdate/selected"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ButtonUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ButtonUpdate/label"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//SubmitButtonUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//CheckBoxUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//CheckBoxUpdate/checked"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//CheckBoxUpdate/value"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//RadioButtonUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//ImageButtonUpdate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//ImageButtonUpdate/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ToggleButtonUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ToggleButtonUpdate/isSelected"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GridContainerUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//CanvasUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//FormUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//VBoxUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//HBoxUpdate"/>
+    <genClasses ecoreClass="gui.ecore#//HtmlViewUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//HtmlViewUpdate/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//HtmlViewUpdate/source"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//TabItemUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//TabItemUpdate/title"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ImageUpdate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gui.ecore#//ImageUpdate/resource"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//DialogUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DialogUpdate/visible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DialogUpdate/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//DialogUpdate/text"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//ProgressBarUpdate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ProgressBarUpdate/percentage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//ProgressBarUpdate/max"/>
+    </genClasses>
+    <genClasses ecoreClass="gui.ecore#//GuiPlugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gui.ecore#//GuiPlugin/className"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Io_interfaces" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="io_interfaces.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="io_interfaces.ecore#//SpeechRecognitionProblem">
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//SpeechRecognitionProblem/none"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//SpeechRecognitionProblem/rejected"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//SpeechRecognitionProblem/silenceTimeout"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//SpeechRecognitionProblem/tooQuiet"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//SpeechRecognitionProblem/tooLoud"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="io_interfaces.ecore#//Camera">
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//Camera/FULL"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//Camera/FULLBODY"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//Camera/UPPERBODY"/>
+      <genEnumLiterals ecoreEnumLiteral="io_interfaces.ecore#//Camera/CLOSEUP"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//SensorInput"/>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//ControllerInput"/>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//RendererOutput"/>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//ActuatorOutput"/>
+    <genClasses ecoreClass="io_interfaces.ecore#//AcousticEvent"/>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//Gesture"/>
+    <genClasses ecoreClass="io_interfaces.ecore#//HandGesture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/fingersLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/fingersRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/levelLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/levelRight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/gesture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HandGesture/gestureDirection"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//BodyGesture"/>
+    <genClasses ecoreClass="io_interfaces.ecore#//EyeGaze">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io_interfaces.ecore#//EyeGaze/leftEye"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io_interfaces.ecore#//EyeGaze/rightEye"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//HeadGesture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HeadGesture/commonGesture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HeadGesture/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HeadGesture/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HeadGesture/yaw"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//HeadGesture/roll"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//PointingGesture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io_interfaces.ecore#//PointingGesture/coordinate"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//Speech">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io_interfaces.ecore#//Speech/words"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Speech/utterance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Speech/signalUri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Speech/problem"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io_interfaces.ecore#//ISpeechSynthesis"/>
+    <genClasses ecoreClass="io_interfaces.ecore#//SpeechSynthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//SpeechSynthesis/utterance"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//AudioTrack">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//AudioTrack/trackId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//AudioTrack/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//VirtualCharacter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//VirtualCharacter/utterance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//VirtualCharacter/avatarId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//VirtualCharacter/camera"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//VirtualCharacter/bml"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//EyeData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/gazePosX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/gazePosY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/cameraPosX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/cameraPosY"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/pupilDiameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//EyeData/confusionConfidence"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//Word">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/phonemes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/lexicalForm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/beginTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Word/endTime"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//Thermometer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Thermometer/temperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//Thermometer/Unit"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//PulseMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//PulseMonitor/pulse"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//LampControl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//LampControl/onState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//LampControl/color"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//VentilatorControl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//VentilatorControl/level"/>
+    </genClasses>
+    <genClasses ecoreClass="io_interfaces.ecore#//Tangible"/>
+    <genClasses ecoreClass="io_interfaces.ecore#//SpeechFeatures">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//SpeechFeatures/spearkingRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//SpeechFeatures/intensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io_interfaces.ecore#//SpeechFeatures/pitch"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Io" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="io.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="io.ecore#//PresentationStateEnum">
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//PresentationStateEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//PresentationStateEnum/Started"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//PresentationStateEnum/Finished"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//PresentationStateEnum/InProgress"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="io.ecore#//SpeechRecognizerStateEnum">
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/MicrophoneOpen"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/MicrophoneClosed"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/SpeechStarted"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/SpeechStopped"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerStateEnum/Silence"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="io.ecore#//SpeechRecognizerModeEnum">
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerModeEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerModeEnum/OpenMicrophone"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerModeEnum/CloseMicrophone"/>
+      <genEnumLiterals ecoreEnumLiteral="io.ecore#//SpeechRecognizerModeEnum/SpeakToActivate"/>
+    </genEnums>
+    <genClasses ecoreClass="io.ecore#//ServiceInstance" labelFeature="#//io/ServiceInstance/description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ServiceInstance/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//ServiceInstance/communicationinfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//ServiceInstance/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//ServiceInstance/device"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//ServiceInstance/usedHardware"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ServiceInstance/serviceInstanceName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Service/serviceName"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference io.ecore#//Service/serviceInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//Service/user"/>
+      <genOperations ecoreOperation="io.ecore#//Service/getUniqueId"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//CompoundService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//CompoundService/services"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SimpleService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//SimpleService/serviceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SimpleService/modalities"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//CommunicationInfo"/>
+    <genClasses ecoreClass="io.ecore#//TCPServer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TCPServer/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TCPServer/port"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//TECSDirectService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TECSDirectService/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TECSDirectService/data1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TECSDirectService/data2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//TECSDirectService/URIs"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//HtmlServlet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//HtmlServlet/fragmentName"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SipConnection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SipConnection/callId"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//OSGIBundle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//OSGIBundle/bundleName"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Device/deviceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//Device/hardware"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//Hardware">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Hardware/id"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//IOEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//IOEvent/message"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//Message" labelFeature="#//io/Message/description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Message/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Message/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Message/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Message/session"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//InputMessage" labelFeature="#//io/Message/description"/>
+    <genClasses image="false" ecoreClass="io.ecore#//OutputMessage" labelFeature="#//io/Message/description"/>
+    <genClasses ecoreClass="io.ecore#//CustomMessage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//CustomMessage/content"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//CommunicativeAct">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CommunicativeAct/initiator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CommunicativeAct/addressee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CommunicativeAct/passedFade"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//ControlMessage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ControlMessage/device"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ControlMessage/serviceInstanceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ControlMessage/serviceName"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//UpdateDeviceMode" labelFeature="#//io/Message/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//UpdateDeviceMode/deviceMode"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//DeviceStateChanged" labelFeature="#//io/Message/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//DeviceStateChanged/deviceState"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//InputAct" labelFeature="#//io/Message/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//InputAct/representation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//InputAct/hypotheses"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//OutputAct" labelFeature="#//io/Message/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//OutputAct/communicativeFunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//OutputAct/presentation"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//IORepresentation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/device"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/serviceInstance"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/serviceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/beginTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//IORepresentation/userAlias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//InputRepresentation"/>
+    <genClasses image="false" ecoreClass="io.ecore#//OutputRepresentation"/>
+    <genClasses ecoreClass="io.ecore#//Hypothesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//Hypothesis/confidence"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//Hypothesis/communicativeFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SpeechHypothesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechHypothesis/utterance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//SpeechHypothesis/tokens"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechHypothesis/grammar"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//GestureHypothesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//GestureHypothesis/gesture"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference io.ecore#//GestureHypothesis/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//PointingHypothesis"/>
+    <genClasses ecoreClass="io.ecore#//CustomFormat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//CustomFormat/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CustomFormat/uri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CustomFormat/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="io.ecore#//DeviceState"/>
+    <genClasses image="false" ecoreClass="io.ecore#//DeviceMode"/>
+    <genClasses ecoreClass="io.ecore#//CancelPresentation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//CancelPresentation/id"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//PresentationState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//PresentationState/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//PresentationState/state"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//UpdateGrammar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//UpdateGrammar/grammarID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference io.ecore#//UpdateGrammar/grammar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//UpdateGrammar/active"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SpeechRecognizerState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechRecognizerState/state"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SpeechRecognizerMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechRecognizerMode/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//SpeechSynthesisState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechSynthesisState/phoneme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechSynthesisState/viseme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechSynthesisState/charIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//SpeechSynthesisState/bookmark"/>
+    </genClasses>
+    <genClasses ecoreClass="io.ecore#//ActiveGestures">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute io.ecore#//ActiveGestures/gestures"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Pattern" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="pattern.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//Computation">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//Computation/SET"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//Computation/OVERLAY"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//Computation/UNIFICATION"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//Computation/RESTRICTED_UNIFICATION"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//Computation/ADD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PBooleanRestrictionEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PBooleanRestrictionEnum/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PBooleanRestrictionEnum/NOT_EQUALS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PNumberRestrictionEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/NOT_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/GREATER_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/GREATER_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/LESS_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PNumberRestrictionEnum/LESS_THAN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PEnumRestrictionEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionEnum/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionEnum/NOT_EQUALS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PEnumRestrictionType">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionType/VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionType/LITERAL"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionType/NAME"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PEnumRestrictionType/INSTANCE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PStringRestrictionEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/NOT_EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/STARTS_WITH"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/ENDS_WITH"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/CONTAINS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PStringRestrictionEnum/MATCHES"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PCharRestrictionEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PCharRestrictionEnum/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PCharRestrictionEnum/NOT_EQUALS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PRestrictionsEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PRestrictionsEnum/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PRestrictionsEnum/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PRestrictionsEnum/NOT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pattern.ecore#//PQuantorEnum">
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PQuantorEnum/EXISTS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PQuantorEnum/NOT_EXISTS"/>
+      <genEnumLiterals ecoreEnumLiteral="pattern.ecore#//PQuantorEnum/FOR_ALL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="pattern.ecore#//PEObjectArray"/>
+    <genClasses ecoreClass="pattern.ecore#//PEmptySlot"/>
+    <genClasses ecoreClass="pattern.ecore#//PLogicalFormula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PLogicalFormula/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PLogicalFormula/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pattern.ecore#//PObject/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PObject/slot"/>
+      <genOperations ecoreOperation="pattern.ecore#//PObject/getSlot">
+        <genParameters ecoreParameter="pattern.ecore#//PObject/getSlot/feature"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PObject/createSkeleton"/>
+      <genOperations ecoreOperation="pattern.ecore#//PObject/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PObject/unify/ppatt"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PObject/unify.1">
+        <genParameters ecoreParameter="pattern.ecore#//PObject/unify.1/bg"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PSlot">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pattern.ecore#//PSlot/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PSlot/range"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PSlot/featureName"/>
+      <genOperations ecoreOperation="pattern.ecore#//PSlot/getRangeValue"/>
+      <genOperations ecoreOperation="pattern.ecore#//PSlot/getRangeValues"/>
+      <genOperations ecoreOperation="pattern.ecore#//PSlot/getRangeObject"/>
+      <genOperations ecoreOperation="pattern.ecore#//PSlot/getRangeObjects"/>
+      <genOperations ecoreOperation="pattern.ecore#//PSlot/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PSlot/unify/bg"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PSubscription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PSubscription/patterns"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pattern.ecore#//PPattern">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PPattern/varName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PPattern/instIdx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PPattern/quantor"/>
+      <genOperations ecoreOperation="pattern.ecore#//PPattern/matches">
+        <genParameters ecoreParameter="pattern.ecore#//PPattern/matches/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PPattern/createSkeleton"/>
+      <genOperations ecoreOperation="pattern.ecore#//PPattern/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PPattern/unify/ppatt"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pattern.ecore#//PValue/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PValue/restrictions"/>
+      <genOperations ecoreOperation="pattern.ecore#//PValue/createSkeleton"/>
+      <genOperations ecoreOperation="pattern.ecore#//PValue/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PValue/unify/ppatt"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PValue/unify.1">
+        <genParameters ecoreParameter="pattern.ecore#//PValue/unify.1/bg"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PValueObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PValueObject/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pattern.ecore#//PValueGen">
+      <genOperations ecoreOperation="pattern.ecore#//PValueGen/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PValueGen/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PRestrictions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PRestrictions/restriction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pattern.ecore#//PRestrictions/restrictions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PRestrictions/function"/>
+      <genOperations ecoreOperation="pattern.ecore#//PRestrictions/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PRestrictions/getDefaultValue/defVal_"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PRestrictions/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PRestrictions/unify/bg"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pattern.ecore#//PRestriction">
+      <genTypeParameters ecoreTypeParameter="pattern.ecore#//PRestriction/F"/>
+      <genTypeParameters ecoreTypeParameter="pattern.ecore#//PRestriction/V"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PRestriction/expression"/>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/getFunction"/>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/setFunction">
+        <genParameters ecoreParameter="pattern.ecore#//PRestriction/setFunction/function"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/getValue"/>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/setValue">
+        <genParameters ecoreParameter="pattern.ecore#//PRestriction/setValue/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PRestriction/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PRestriction/unify/bg"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PBooleanRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PBooleanRestriction/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PBooleanRestriction/function"/>
+      <genOperations ecoreOperation="pattern.ecore#//PBooleanRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PBooleanRestriction/isSatisfiedBy/value_"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PBooleanRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PBooleanRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PEnumRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PEnumRestriction/function"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pattern.ecore#//PEnumRestriction/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pattern.ecore#//PEnumRestriction/enumDataType"/>
+      <genOperations ecoreOperation="pattern.ecore#//PEnumRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PEnumRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PEnumRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PEnumRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PEnumRestriction/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PEnumRestriction/unify/bgrest"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PCharRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PCharRestriction/ignoreCase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PCharRestriction/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PCharRestriction/function"/>
+      <genOperations ecoreOperation="pattern.ecore#//PCharRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PCharRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PCharRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PCharRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PCharRestriction/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PCharRestriction/unify/bgrest"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PStringRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PStringRestriction/ignoreCase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PStringRestriction/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PStringRestriction/function"/>
+      <genOperations ecoreOperation="pattern.ecore#//PStringRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PStringRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PStringRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PStringRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PStringRestriction/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PStringRestriction/unify/bgrest"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pattern.ecore#//PNumberRestriction">
+      <genTypeParameters ecoreTypeParameter="pattern.ecore#//PNumberRestriction/V"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PNumberRestriction/function"/>
+      <genOperations ecoreOperation="pattern.ecore#//PNumberRestriction/_compareTo">
+        <genParameters ecoreParameter="pattern.ecore#//PNumberRestriction/_compareTo/compareToResult"/>
+        <genParameters ecoreParameter="pattern.ecore#//PNumberRestriction/_compareTo/function"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PByteRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PByteRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PByteRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PByteRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PByteRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PByteRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PShortRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PShortRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PShortRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PShortRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PShortRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PShortRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PIntegerRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PIntegerRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PIntegerRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PIntegerRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PIntegerRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PIntegerRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PIntegerRestriction/unify">
+        <genParameters ecoreParameter="pattern.ecore#//PIntegerRestriction/unify/bgrest"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PLongRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PLongRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PLongRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PLongRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PLongRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PLongRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PFloatRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PFloatRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PFloatRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PFloatRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PFloatRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PFloatRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PDoubleRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PDoubleRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PDoubleRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PDoubleRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PDoubleRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PDoubleRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="pattern.ecore#//PDateRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pattern.ecore#//PDateRestriction/value"/>
+      <genOperations ecoreOperation="pattern.ecore#//PDateRestriction/isSatisfiedBy">
+        <genParameters ecoreParameter="pattern.ecore#//PDateRestriction/isSatisfiedBy/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="pattern.ecore#//PDateRestriction/getDefaultValue">
+        <genParameters ecoreParameter="pattern.ecore#//PDateRestriction/getDefaultValue/defVal"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="PrimitiveTasks" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="primitive_task.ecore#/">
+    <genClasses ecoreClass="primitive_task.ecore#//PrimitiveTask"/>
+    <genClasses ecoreClass="primitive_task.ecore#//ListItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//ListItem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//ListItem/value"/>
+    </genClasses>
+    <nestedGenPackages prefix="Input" basePackage="de.dfki.iui.mmds.core.model.primitiveTasks"
+        disposableProviderFactory="true" ecorePackage="primitive_task.ecore#//input">
+      <genClasses ecoreClass="primitive_task.ecore#//input/PrimitiveInputTask"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/ContainerManipulationTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/SelectionTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/FactEntryTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/NavigationTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/InvocationTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//input/AdaptationTaskBase"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ZoomTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/PanTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ScrollTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/IntraDocumentNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowDirectionalNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowForwardNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowBackwardNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowStartNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowEndNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowRandomNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowCancelNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DialogFlowLabelNavigationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/CommandInvocationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/MenuInvocationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ItemActivationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ItemRearrangementTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ExpandInformationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ASRErrorCorrectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/TextSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ProactivityInvocationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ExpanationExpansionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/RevertAdaptationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/FreeTextEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DateTimeEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/IntegerNumberEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/BoundedIntegerNumberEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/DecimalNumberEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/YesNoSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/TriStateSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ListItemSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ListItemMultiSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/MessageDismissalTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//input/ObjectSelectionTask"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Output" basePackage="de.dfki.iui.mmds.core.model.primitiveTasks"
+        disposableProviderFactory="true" ecorePackage="primitive_task.ecore#//output">
+      <genClasses ecoreClass="primitive_task.ecore#//output/PrimitiveOutputTask"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//output/SelectionTaskBase">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//output/SelectionTaskBase/item"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//output/AdaptationTaskBase"/>
+      <genClasses image="false" ecoreClass="primitive_task.ecore#//output/FactEntryTaskBase"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/MessageTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/DocumentPresentationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/CommandSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/MenuItemSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ProgressIndicationTask">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//output/ProgressIndicationTask/progress"/>
+      </genClasses>
+      <genClasses ecoreClass="primitive_task.ecore#//output/AdaptationIndicationTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ManipulableImageTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/FreeTextEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/DateTimeEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/IntegerNumberEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/BoundedIntegerNumberEntryTask">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//output/BoundedIntegerNumberEntryTask/min"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute primitive_task.ecore#//output/BoundedIntegerNumberEntryTask/max"/>
+      </genClasses>
+      <genClasses ecoreClass="primitive_task.ecore#//output/DecimalNumberEntryTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/YesNoSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/TriStateSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ListItemSelectionTask">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference primitive_task.ecore#//output/ListItemSelectionTask/listItem"/>
+      </genClasses>
+      <genClasses ecoreClass="primitive_task.ecore#//output/LongListItemSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ShortItemSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ListItemMultiSelectionTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/MessageDismissalTask"/>
+      <genClasses ecoreClass="primitive_task.ecore#//output/ObjectSelectionTask"/>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="Project" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="project.ecore#/">
+    <genClasses ecoreClass="project.ecore#//Project">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//Project/guis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//Project/knowledgeBase"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference project.ecore#//Project/dialogue"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference project.ecore#//Project/taskPlans"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//Project/grammarRules"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference project.ecore#//Project/entityResource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//Project/digitalResources"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference project.ecore#//Project/mappingRules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//Project/plugins"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//Project/localization"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//Project/supportedServiceInterfaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//Project/testMessages"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//SiamInternalServiceInterface" labelFeature="#//project/SiamInternalServiceInterface/siamId">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//SiamInternalServiceInterface/siamId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//SiamInternalServiceInterface/serviceInstanceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//SiamInternalServiceInterface/serviceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//SiamInternalServiceInterface/modality"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//SiamInternalServiceInterface/participant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference project.ecore#//SiamInternalServiceInterface/serviceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//SiamInternalServiceInterface/initMessages"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//SiamInternalSpeechInputServiceInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//SiamInternalSpeechInputServiceInterface/grammarRulesetId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="project.ecore#//MappingRules">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//MappingRules/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//MappingRules/subrules"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//InputMappingRules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//InputMappingRules/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//OutputMappingRules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//OutputMappingRules/rules"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="project.ecore#//MappingRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//MappingRule/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//MappingRule/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//MappingRule/active"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//InputMappingRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//InputMappingRule/target"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//OutputMappingRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//OutputMappingRule/target"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//MappingSubRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//MappingSubRule/target"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//JavaPlugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//JavaPlugin/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute project.ecore#//JavaPlugin/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="project.ecore#//TestMessageSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference project.ecore#//TestMessageSet/messages"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="References" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="references.ecore#/">
+    <genClasses image="false" ecoreClass="references.ecore#//ReferenceModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference references.ecore#//ReferenceModel/referencePattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference references.ecore#//ReferenceModel/hasMorphoSyntacticDecomposition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//ReferenceModel/isMany"/>
+    </genClasses>
+    <genClasses ecoreClass="references.ecore#//DeicticReference"/>
+    <genClasses ecoreClass="references.ecore#//KnowledgeBaseReference"/>
+    <genClasses ecoreClass="references.ecore#//GuiContentReference"/>
+    <genClasses ecoreClass="references.ecore#//SpatialReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference references.ecore#//SpatialReference/relatum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//SpatialReference/spatialExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="references.ecore#//TemporalReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//TemporalReference/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//TemporalReference/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//TemporalReference/temporalFrame"/>
+    </genClasses>
+    <genClasses ecoreClass="references.ecore#//CollectionReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//CollectionReference/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//CollectionReference/order"/>
+    </genClasses>
+    <genClasses ecoreClass="references.ecore#//LingInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//LingInfo/case"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//LingInfo/gender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//LingInfo/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute references.ecore#//LingInfo/partOfSpeech"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Grammar" basePackage="de.dfki.iui.mmds.core.model.speech_recognition"
+      resource="XML" disposableProviderFactory="true" ecorePackage="srgs.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="srgs.ecore#//ModeDatatype">
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//ModeDatatype/voice"/>
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//ModeDatatype/dtmf"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="srgs.ecore#//ScopeDatatype">
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//ScopeDatatype/private"/>
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//ScopeDatatype/public"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="srgs.ecore#//SpecialDatatype">
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//SpecialDatatype/NULL"/>
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//SpecialDatatype/VOID"/>
+      <genEnumLiterals ecoreEnumLiteral="srgs.ecore#//SpecialDatatype/GARBAGE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="srgs.ecore#//Example"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//IdDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//ModeDatatypeObject"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//RepeatDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//RepeatProbDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//RootDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//ScopeDatatypeObject"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//SpecialDatatypeObject"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//Tag"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//TagFormatDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//TypeDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//VersionDatatype"/>
+    <genDataTypes ecoreDataType="srgs.ecore#//WeightDatatype"/>
+    <genClasses ecoreClass="srgs.ecore#//DocumentRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference srgs.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference srgs.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//DocumentRoot/grammar"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Grammar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Grammar/lexicon"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Grammar/meta"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Grammar/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/tag"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/group1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Grammar/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/tagFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Grammar/version"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Grammar1"/>
+    <genClasses ecoreClass="srgs.ecore#//Item">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/ruleExpansion"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Item/token"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Item/ruleref"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Item/item"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Item/oneOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/tag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/repeat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/repeatProb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Item/weight"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Lexicon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Lexicon/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Lexicon/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Meta">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Meta/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Meta/httpEquiv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Meta/name"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Metadata">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Metadata/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Metadata/any"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Metadata/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//OneOf">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//OneOf/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//OneOf/item"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//OneOf/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Rule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Rule/token"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Rule/ruleref"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Rule/item"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference srgs.ecore#//Rule/oneOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/tag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/example"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Rule/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Ruleref">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Ruleref/special"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Ruleref/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Ruleref/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="srgs.ecore#//Token">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute srgs.ecore#//Token/mixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute srgs.ecore#//Token/lang"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="SpeechSynthesis" basePackage="de.dfki.iui.mmds.core.model"
+      resource="XML" disposableProviderFactory="true" ecorePackage="synthesis.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//GenderDatatype">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//GenderDatatype/male"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//GenderDatatype/female"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//GenderDatatype/neutral"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//GenderDatatype/_"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//HeightScale">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/xHigh"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/high"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/medium"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/low"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/xLow"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//HeightScale/default"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//LevelDatatype">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//LevelDatatype/strong"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//LevelDatatype/moderate"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//LevelDatatype/none"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//LevelDatatype/reduced"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//SpeedScale">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/xFast"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/fast"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/medium"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/slow"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/xSlow"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//SpeedScale/default"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//StrengthDatatype">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/none"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/xWeak"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/weak"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/medium"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/strong"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//StrengthDatatype/xStrong"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="synthesis.ecore#//VolumeScale">
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/silent"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/xSoft"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/soft"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/medium"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/loud"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/xLoud"/>
+      <genEnumLiterals ecoreEnumLiteral="synthesis.ecore#//VolumeScale/default"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="synthesis.ecore#//AgeDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//AlphabetDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//ContourDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//ContourpointDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//DbDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Duration"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//EmptystringDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//FetchhintDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//GenderDatatypeObject"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//HeightScaleObject"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//HertzNumber"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//HertzRelative"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//LanguagesDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//LevelDatatypeObject"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//NameDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Nonnegpercent"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Number"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//OnlangfailureDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//OnvoicefailureDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//OrderingDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//OrderingitemDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//OrderinglistDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Percent"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//PhonemetypeDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//PitchDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RangeDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RateDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Relative"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RequiredDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RequireditemDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RequiredlistDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//RoleDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//Semitone"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//SpeedScaleObject"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//StrengthDatatypeObject"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//TimedesignationDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VariantDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VersionDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VoicenameDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VoicenamesDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VolumeDatatype"/>
+    <genDataTypes ecoreDataType="synthesis.ecore#//VolumeScaleObject"/>
+    <genClasses ecoreClass="synthesis.ecore#//SSMLSpeechSynthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SSMLSpeechSynthesis/ssml"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSMLSpeechSynthesis/ssmlDocument"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Audio">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/descAndSentenceAndStructureClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Audio/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/structGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Audio/struct"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Audio/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Audio/desc"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/fetchhint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/fetchtimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/maxage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/maxstale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/src"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Audio/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Break">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Break/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Break/strength"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Break/time"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Break/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Desc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Desc/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Desc/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Desc/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Desc/onlangfailure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Desc/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//SSML">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SSML/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/audio"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/aws"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/break"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/desc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/emphasis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/lang"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/lookup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/mark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/p"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/struct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/phoneme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/prosody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/s"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/sayAs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/speak"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/sub"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/token"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/voice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference synthesis.ecore#//SSML/w"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Emphasis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/sentenceClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Emphasis/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Emphasis/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/level"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Emphasis/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//LangType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/audio"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/break"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/emphasis"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/lang"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/mark"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/p"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/phoneme"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/prosody"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/sayAs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/sub"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/s"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/token"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/voice"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LangType/w"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/lang1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/onlangfailure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//LangType/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//LookupType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//LookupType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LookupType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/audio"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/break"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/emphasis"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/lang"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/mark"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/p"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/phoneme"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/prosody"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/sayAs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/sub"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/s"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/token"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/voice"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//LookupType/w"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LookupType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//LookupType/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//LookupType/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Mark">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Mark/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Mark/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Mark/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Mark1"/>
+    <genClasses ecoreClass="synthesis.ecore#//Paragraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Paragraph/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Paragraph/s"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Paragraph/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/onlangfailure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Paragraph/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Phoneme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/alphabet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/ph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Phoneme/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Prosody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/sentenceAndStructureClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Prosody/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/structGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Prosody/struct"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Prosody/lookup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/contour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/rate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/volume"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Prosody/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//SayAs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/detail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/interpretAs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SayAs/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Sentence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/sentenceClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Sentence/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Sentence/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/onlangfailure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sentence/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Speak">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/meta"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/metadata"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/lexicon"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/any"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/structGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/struct"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/lookup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/group1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/awsGroup1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/aws1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/structGroup1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/struct1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Speak/lookup1"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/any1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/endmark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/onlangfailure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/startmark"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Speak/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//SsmlLexicon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/fetchtimeout"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/maxage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/maxstale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/uri"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlLexicon/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//SsmlMeta">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMeta/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMeta/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMeta/httpEquiv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMeta/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMeta/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//SsmlMetadata">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMetadata/any"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//SsmlMetadata/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Sub">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sub/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sub/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sub/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Sub/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//TokenType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/audio"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/break"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/emphasis"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/mark"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/phoneme"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/prosody"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/sayAs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/sub"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//TokenType/voice"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/onlangfailure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//TokenType/anyAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="synthesis.ecore#//Voice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/sentenceAndStructureClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/awsGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Voice/aws"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/structGroup"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Voice/struct"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference synthesis.ecore#//Voice/lookup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/age"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/gender"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/languages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/onvoicefailure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/ordering"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/required"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/variant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute synthesis.ecore#//Voice/anyAttribute"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Tangible" basePackage="de.dfki.iui.mmds.core.model.io" resource="XML"
+      disposableProviderFactory="true" ecorePackage="tangible.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tangible.ecore#//HardwareTypes">
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/PushButton"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/Dial"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/Slider"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/FlipSwitch"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/Keyboard"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/ContactButton"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/Joystick"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/ScrollWheel"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/Pedal"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/SteeringWheel"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/TristateFlipSwitch"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/FourWayButton"/>
+      <genEnumLiterals ecoreEnumLiteral="tangible.ecore#//HardwareTypes/TouchPad"/>
+    </genEnums>
+    <genClasses ecoreClass="tangible.ecore#//TangibleInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TangibleInput/hardwareID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TangibleInput/hardwareType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TangibleInput/hardwareFriendlyName"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//PushButtonInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//PushButtonInput/isPressed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//PushButtonInput/canNotifyRelease"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//ToggleButtonInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//ToggleButtonInput/isPressed"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//KeyboardInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//KeyboardInput/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//KeyboardInput/isPressed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//KeyboardInput/canNotifyRelease"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//TurnDialFiniteDiscreteInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteDiscreteInput/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteDiscreteInput/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteDiscreteInput/value"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//TurnDialFiniteContinuousInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteContinuousInput/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteContinuousInput/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialFiniteContinuousInput/value"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//TurnDialInfiniteDiscreteInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialInfiniteDiscreteInput/delta"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//TurnDialInfiniteContinuousInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//TurnDialInfiniteContinuousInput/delta"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//Joystick2DInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//Joystick2DInput/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//Joystick2DInput/y"/>
+    </genClasses>
+    <genClasses ecoreClass="tangible.ecore#//Joystick3DInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//Joystick3DInput/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//Joystick3DInput/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tangible.ecore#//Joystick3DInput/z"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Json" basePackage="de.dfki.iui.mmds.core.model" disposableProviderFactory="true"
+      ecorePackage="json.ecore#/">
+    <genClasses image="false" ecoreClass="json.ecore#//JSONAbstractObject"/>
+    <genClasses ecoreClass="json.ecore#//JSONObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference json.ecore#//JSONObject/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="json.ecore#//JSONAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute json.ecore#//JSONAttribute/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference json.ecore#//JSONAttribute/range"/>
+    </genClasses>
+    <genClasses ecoreClass="json.ecore#//JSONValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute json.ecore#//JSONValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="json.ecore#//JSONParser">
+      <genOperations ecoreOperation="json.ecore#//JSONParser/parse">
+        <genParameters ecoreParameter="json.ecore#//JSONParser/parse/jsonStr"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Task" basePackage="de.dfki.iui.mmds.core.model" resource="XML"
+      disposableProviderFactory="true" ecorePackage="task.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="task.ecore#//TaskState">
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//TaskState/INACTIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//TaskState/EXECUTING"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//TaskState/FINISHED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="task.ecore#//UserState">
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//UserState/ATTENTION"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//UserState/PERCEPTION"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//UserState/INTERPRETATION"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//UserState/EVALUATION"/>
+      <genEnumLiterals ecoreEnumLiteral="task.ecore#//UserState/EXECUTION"/>
+    </genEnums>
+    <genClasses ecoreClass="task.ecore#//TPlan">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TPlan/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TPlan/task"/>
+      <genOperations ecoreOperation="task.ecore#//TPlan/getTask">
+        <genParameters ecoreParameter="task.ecore#//TPlan/getTask/taskId"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TTask">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TTask/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TTask/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TTask/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TTask/postcondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//TTask/successor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TTask/action"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//TTask/actor"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TCompositeTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TCompositeTask/task"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TCondition/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TCondition/pattern"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//TPhysicalEntity"/>
+    <genClasses image="false" ecoreClass="task.ecore#//TTool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TTool/size"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TMaterial">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TMaterial/depth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TMaterial/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TMaterial/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TMaterial/unit"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="task.ecore#//TAction"/>
+    <genClasses image="false" ecoreClass="task.ecore#//TPhysicalAction"/>
+    <genClasses ecoreClass="task.ecore#//TDescription">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute task.ecore#//TDescription/value"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TMetaData">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//TMetaData/media"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TMetaData/description"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Backchannel" basePackage="de.dfki.iui.mmds.core.model" disposableProviderFactory="true"
+      ecorePackage="backchannel.ecore#/">
+    <genClasses ecoreClass="backchannel.ecore#//OkayPositiveAutoFeedback"/>
+    <genClasses ecoreClass="backchannel.ecore#//UhmNegativeAutoFeedback"/>
+  </genPackages>
+</genmodel:GenModel>

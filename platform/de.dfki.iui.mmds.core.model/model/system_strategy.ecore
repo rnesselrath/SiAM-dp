@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="system_strategy" nsURI="http://www.dfki.de/iui/mmds/core/model/system_strategy"
+    nsPrefix="system_strategy">
+  <eClassifiers xsi:type="ecore:EClass" name="SystemStrategyCollection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" upperBound="-1"
+        eType="#//SystemStrategy" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemStrategy">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A system strategy describes what system actions should be performed when as soon as some condition matches."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="ecore:EClass dialogue.ecore#//InstanceMatchCondition" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The condition specifies when the strategy will be activated. It is one or several patterns over the global datamodel, i.e. every variable in the dialog could be used for checking some conditions."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="moment" lowerBound="1"
+        upperBound="-1" eType="#//Moment" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The moment describes when the specified actions will be executed. There are 3 types of moments in a dialog model: onEntry, onExit and onTrigger. Additionally it should be specified how often the actions should be executed, e.g. in case of repeating tasks the strategy could fire only the first time or every time. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass dialogue.ecore#//ExecutableContent" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The actions can be any kind of allowed executable content statements (Raise, Send, Assign, ...) from the dialog model. They represent the effect of the strategy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Moment" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repetition" eType="#//REPETITION"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImmediateMoment" eSuperTypes="#//Moment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskMoment" eSuperTypes="#//Moment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" eType="ecore:EClass task.ecore#//TTask"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionMoment" eSuperTypes="#//Moment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="ecore:EClass dialogue.ecore#//Transition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="REPETITION">
+    <eLiterals name="ONCE" literal="ONCE"/>
+    <eLiterals name="ALWAYS" value="1" literal="ALWAYS"/>
+  </eClassifiers>
+</ecore:EPackage>

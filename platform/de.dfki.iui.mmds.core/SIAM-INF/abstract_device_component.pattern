@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pattern:PSubscription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pattern="http://www.dfki.de/iui/mmds/core/model/pattern">
+  <patterns xsi:type="pattern:PObject">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//OutputAct"/>
+    <slot>
+      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io#//CommunicativeAct/passedFade"/>
+      <range xsi:type="pattern:PValue">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <restrictions>
+          <restriction xsi:type="pattern:PBooleanRestriction" value="true"/>
+        </restrictions>
+      </range>
+    </slot>
+    <slot>
+      <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//OutputAct/presentation"/>
+      <range xsi:type="pattern:PObject" varName="representation[]">
+        <type href="http://www.dfki.de/iui/mmds/core/model/io#//OutputRepresentation"/>
+        <slot>
+          <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io#//IORepresentation/device"/>
+          <range xsi:type="pattern:PValue">
+            <type href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+            <restrictions function="OR"/>
+          </range>
+        </slot>
+      </range>
+    </slot>
+  </patterns>
+  <patterns xsi:type="pattern:PObject">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//UpdateDeviceMode"/>
+    <slot>
+      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io#//ControlMessage/device"/>
+      <range xsi:type="pattern:PValue">
+        <type href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+        <restrictions function="OR"/>
+      </range>
+    </slot>
+  </patterns>
+</pattern:PSubscription>

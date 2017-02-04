@@ -1,0 +1,79 @@
+package PLUGIN_NAME;
+
+import org.eclipse.emf.common.util.EMap;
+import org.osgi.service.component.ComponentContext;
+import org.osgi.service.event.Event;
+import java.util.List;
+
+import de.dfki.iui.mmds.core.device_manager.AbstractDeviceComponent;
+import de.dfki.iui.mmds.core.emf.datatypes.BString;
+import de.dfki.iui.mmds.core.model.io.CommunicationDirection;
+import de.dfki.iui.mmds.core.model.io.CustomFormat;
+import de.dfki.iui.mmds.core.model.io.Device;
+import de.dfki.iui.mmds.core.model.io.InputAct;
+import de.dfki.iui.mmds.core.model.io.IoFactory;
+import de.dfki.iui.mmds.core.model.io.Modality;
+import de.dfki.iui.mmds.core.model.io.OutputAct;
+import de.dfki.iui.mmds.core.model.io.OutputRepresentation;
+import de.dfki.iui.mmds.core.model.io.UpdateDeviceMode;
+
+public class DEVICE_NAMEComponent extends AbstractDeviceComponent {
+
+	ComponentContext context;
+
+	@Override
+	public void activate(ComponentContext context) {
+		super.activate(context);
+		this.context = context;
+
+		Device exampleDevice = IoFactory.eINSTANCE.createDevice();
+		// physical id is used for internal identification and matching with
+		// device specification in project setting
+		exampleDevice.setPhysicalId("example_device");
+		exampleDevice.setModality(Modality.OTHER_1);
+		exampleDevice.setDirection(CommunicationDirection.BIDIRECTIONAL);
+		// registers new device
+		addDevice(exampleDevice);
+
+		// Just an example for sending messages to the dialog system. Provide your own code instead!
+		new Thread(() -> {
+			try {
+				while (true) {
+					Thread.sleep(5000);
+					sendEvent();
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}).start();
+	}
+
+	@Override
+	protected void deactivate() {
+		super.deactivate();
+	}
+
+	public void sendEvent() {
+	    // Example representation of an input event using the custom format. Write your own instance here!
+		InputAct input = IoFactory.eINSTANCE.createInputAct();
+		CustomFormat custom = IoFactory.eINSTANCE.createCustomFormat();
+		input.getRepresentation().add(custom);
+
+		EMap<String, BString> content = custom.getContent();
+		content.put("key1", new BString("value1"));
+		content.put("key2", new BString("value2"));
+		sendInputMessage(input, "example_device");
+
+	}
+
+	@Override
+	protected void outputActEvent(Device device, List<OutputRepresentation> representation,	OutputAct message, Event event) {
+		// handler for output interaction events
+	}
+
+	@Override
+	protected void updateDeviceModeEvent(Device device, UpdateDeviceMode message, Event event) {
+	     // hander for device mode change events
+	}
+}

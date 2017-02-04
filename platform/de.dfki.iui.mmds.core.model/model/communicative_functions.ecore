@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="communicative_functions" nsURI="http://www.dfki.de/iui/mmds/core/model/io/communicative_functions"
+    nsPrefix="communicative_functions">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SemanticContent" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="ecore:EClass base.ecore#//Entity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass references.ecore#//ReferenceModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="#//ResolveState"
+        defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicativeFunction" abstract="true"
+      interface="true" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semanticContent" upperBound="-1"
+        eType="#//SemanticContent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEllipsis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="knowledgeItem" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneralPurposeCommunicativeFunction"
+      abstract="true" interface="true" eSuperTypes="#//CommunicativeFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationTransferFunction" abstract="true"
+      interface="true" eSuperTypes="#//GeneralPurposeCommunicativeFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationSeekingFunction" abstract="true"
+      interface="true" eSuperTypes="#//InformationTransferFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationProvidingFunction" abstract="true"
+      interface="true" eSuperTypes="#//InformationTransferFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionDiscussionFunction" abstract="true"
+      interface="true" eSuperTypes="#//GeneralPurposeCommunicativeFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Commissive" abstract="true" interface="true"
+      eSuperTypes="#//ActionDiscussionFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Directive" abstract="true" interface="true"
+      eSuperTypes="#//ActionDiscussionFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Question" eSuperTypes="#//InformationSeekingFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SetQuestion" eSuperTypes="#//Question"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropositionalQuestion" abstract="true"
+      interface="true" eSuperTypes="#//Question"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckQuestion" abstract="true" interface="true"
+      eSuperTypes="#//PropositionalQuestion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveCheckQuestion" eSuperTypes="#//CheckQuestion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeCheckQuestion" eSuperTypes="#//CheckQuestion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChoiceQuestion" abstract="true" interface="true"
+      eSuperTypes="#//Question"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Inform" eSuperTypes="#//InformationProvidingFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Agreement" abstract="true" interface="true"
+      eSuperTypes="#//Inform"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Disagreement" abstract="true" interface="true"
+      eSuperTypes="#//Inform"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Answer" eSuperTypes="#//Inform"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Correction" abstract="true" interface="true"
+      eSuperTypes="#//Disagreement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Confirm" eSuperTypes="#//Answer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Disconfirm" eSuperTypes="#//Answer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Offer" abstract="true" interface="true"
+      eSuperTypes="#//Commissive"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddressSuggestion" abstract="true" interface="true"
+      eSuperTypes="#//Commissive"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Promise" abstract="true" interface="true"
+      eSuperTypes="#//Offer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Threat" abstract="true" interface="true"
+      eSuperTypes="#//Offer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddressRequest" eSuperTypes="#//Threat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptRequest" eSuperTypes="#//AddressRequest"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclineRequest" eSuperTypes="#//AddressRequest"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptSuggestion" eSuperTypes="#//AddressSuggestion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclineSuggestion" eSuperTypes="#//AddressSuggestion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="#//Directive">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestInfo" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruct" eSuperTypes="#//Request"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AddressOffer" eSuperTypes="#//Request"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AcceptOffer" eSuperTypes="#//AddressOffer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclineOffer" eSuperTypes="#//AddressOffer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Suggestion" eSuperTypes="#//Directive"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DimensionSpecificCommunicativeFunction"
+      abstract="true" interface="true" eSuperTypes="#//CommunicativeFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogueControlFunction" abstract="true"
+      interface="true" eSuperTypes="#//DimensionSpecificCommunicativeFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeedbackFunction" abstract="true" interface="true"
+      eSuperTypes="#//DialogueControlFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AutoFeedback" abstract="true" interface="true"
+      eSuperTypes="#//FeedbackFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlloFeedback" abstract="true" interface="true"
+      eSuperTypes="#//FeedbackFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionManagementFunction" abstract="true"
+      interface="true" eSuperTypes="#//DialogueControlFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnManagementFunction" abstract="true"
+      interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeManagementFunction" abstract="true"
+      interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContactManagementFunction" abstract="true"
+      interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnCommunicationManagementFunction"
+      abstract="true" interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PartnerCommunicationManagementFunction"
+      abstract="true" interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DiscourseStructureManagementFunction"
+      abstract="true" interface="true" eSuperTypes="#//InteractionManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SocialObligationManagementFunction"
+      abstract="true" interface="true" eSuperTypes="#//DialogueControlFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Salutation" abstract="true" interface="true"
+      eSuperTypes="#//SocialObligationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfIntroduction" abstract="true" interface="true"
+      eSuperTypes="#//SocialObligationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Apologizing" abstract="true" interface="true"
+      eSuperTypes="#//SocialObligationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gratitude" abstract="true" interface="true"
+      eSuperTypes="#//SocialObligationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Valediction" abstract="true" interface="true"
+      eSuperTypes="#//SocialObligationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialGreeting" eSuperTypes="#//Salutation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnGreeting" eSuperTypes="#//Salutation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialSelfIntroduction" eSuperTypes="#//SelfIntroduction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnSelfIntroduction" eSuperTypes="#//SelfIntroduction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Apology" eSuperTypes="#//Apologizing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApologyDownplay" eSuperTypes="#//Apologizing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Thanking" eSuperTypes="#//Gratitude"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ThankingDownplay" eSuperTypes="#//Gratitude"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialGoodbye" eSuperTypes="#//Valediction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReturnGoodbye" eSuperTypes="#//Valediction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Opening" eSuperTypes="#//DiscourseStructureManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Preclosing" eSuperTypes="#//DiscourseStructureManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TopicIntroduction" eSuperTypes="#//DiscourseStructureManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TopicShiftAnnouncement" eSuperTypes="#//DiscourseStructureManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TopicShift" eSuperTypes="#//TopicShiftAnnouncement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Completion" eSuperTypes="#//PartnerCommunicationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CorrectMisspeaking" eSuperTypes="#//PartnerCommunicationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ErrorSignaling" eSuperTypes="#//OwnCommunicationManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Retraction" eSuperTypes="#//ErrorSignaling"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfCorrection" eSuperTypes="#//Retraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContactCheck" eSuperTypes="#//ContactManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContactIndication" eSuperTypes="#//ContactManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stalling" eSuperTypes="#//TimeManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pausing" eSuperTypes="#//TimeManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnUnitInitialFuntion" abstract="true"
+      interface="true" eSuperTypes="#//TurnManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnUnitFinalFunction" abstract="true"
+      interface="true" eSuperTypes="#//TurnManagementFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnAccept" eSuperTypes="#//TurnUnitInitialFuntion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnGrab" eSuperTypes="#//TurnUnitInitialFuntion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnTake" eSuperTypes="#//TurnUnitInitialFuntion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnAssign" eSuperTypes="#//TurnUnitFinalFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnKeep" eSuperTypes="#//TurnUnitFinalFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TurnRelease" eSuperTypes="#//TurnUnitFinalFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeedbackElicitationFunction" abstract="true"
+      interface="true" eSuperTypes="#//AlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AttentionFeedbackElicitation" eSuperTypes="#//FeedbackElicitationFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PerceptionFeedbackElicitation" eSuperTypes="#//FeedbackElicitationFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InterpretationFeedbackElicitation" eSuperTypes="#//FeedbackElicitationFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvaluationFeedackElicitation" eSuperTypes="#//FeedbackElicitationFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionFeedbackElicitation" eSuperTypes="#//FeedbackElicitationFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeedbackGivingFunction" abstract="true"
+      interface="true" eSuperTypes="#//AlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveAlloFeedback" eSuperTypes="#//FeedbackGivingFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeAlloFeedback" eSuperTypes="#//FeedbackGivingFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveExecutionAlloFeedback" eSuperTypes="#//PositiveEvaluationAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeExecutionAlloFeedback" eSuperTypes="#//NegativeAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveEvaluationAlloFeedback" eSuperTypes="#//PositiveInterpretationAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeEvaluationAlloFeedback" eSuperTypes="#//NegativeExecutionAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveInterpretationAlloFeedback"
+      eSuperTypes="#//PositivePerceptionAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeInterpretationAlloFeedback"
+      eSuperTypes="#//NegativeEvaluationAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositivePerceptionAlloFeedback" eSuperTypes="#//PositiveAttentionAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativePerceptionAlloFeedback" eSuperTypes="#//NegativeInterpretationAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeAttentionAlloFeedback" eSuperTypes="#//NegativePerceptionAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveAutoFeedback" eSuperTypes="#//AutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeAutoFeedback" eSuperTypes="#//AutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveExecutionAutoFeedback" eSuperTypes="#//PositiveEvaluationAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeExecutionAutoFeedback" eSuperTypes="#//NegativeAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveEvaluationAutoFeedback" eSuperTypes="#//PositiveInterpretationAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeEvaluationAutoFeedback" eSuperTypes="#//NegativeExecutionAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositivePerceptionAutoFeedback" eSuperTypes="#//PositiveAttentionAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativePerceptionAutoFeedback" eSuperTypes="#//NegativeInterpretationAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveInterpretationAutoFeedback"
+      eSuperTypes="#//PositivePerceptionAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeInterpretationAutoFeedback"
+      eSuperTypes="#//NegativeEvaluationAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveAttentionAutoFeedback" eSuperTypes="#//PositiveAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegativeAttentionAutoFeedback" eSuperTypes="#//NegativePerceptionAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PositiveAttentionAlloFeedback" eSuperTypes="#//PositiveAlloFeedback"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ResolveState">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="RESOLVED" value="1"/>
+    <eLiterals name="UNRESOLVED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ResolveStateObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ResolvedState"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

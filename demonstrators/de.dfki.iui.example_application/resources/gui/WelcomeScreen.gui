@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui:Window xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gui="http://www.dfki.de/iui/mmds/core/model/io/gui" id="welcomeScreen" title="Welcome">
+  <elements xsi:type="gui:GridContainer">
+    <row>
+      <item>
+        <elements xsi:type="gui:Label" id="welcomeLabel" text="Hello World"/>
+      </item>
+    </row>
+    <row>
+      <item alignment="Center">
+        <elements xsi:type="gui:Image" id="worldImage">
+          <supportedEvents>
+            <eventType href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//ClickEvent"/>
+          </supportedEvents>
+          <resource href="../HelloWorld.project#//@digitalResources.0"/>
+        </elements>
+      </item>
+    </row>
+  </elements>
+</gui:Window>

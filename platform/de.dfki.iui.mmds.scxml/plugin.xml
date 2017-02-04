@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.w3.org/2005/07/scxml"
+            class="de.dfki.iui.mmds.scxml.ScxmlPackage"
+            genModel="model/scxml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="scxml"
+            class="de.dfki.iui.mmds.scxml.util.ScxmlResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            class="de.dfki.iui.mmds.scxml.util.ScxmlResourceFactoryImpl"
+            contentTypeIdentifier="de.dfki.iui.mmds.scxml.StateChart">
+      </parser>
+   </extension>
+
+</plugin>

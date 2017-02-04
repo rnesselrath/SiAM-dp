@@ -1,0 +1,11 @@
+package PLUGIN_NAME;
+
+import de.dfki.iui.mmds.application.AbstractDialogueApplication;
+import org.osgi.service.component.ComponentContext;
+
+public class APPLICATION_NAMEApp extends AbstractDialogueApplication {
+
+	public APPLICATION_NAMEApp() {
+		super("APPLICATION_NAME.project");
+	} 
+}

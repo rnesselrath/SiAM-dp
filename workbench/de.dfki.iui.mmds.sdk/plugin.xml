@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+    The Creative Commons CC-BY-NC 4.0 License
+    http://creativecommons.org/licenses/by-nc/4.0/legalcode
+   
+    Creative Commons (CC) by DFKI GmbH
+    - Vanessa Hahn <Vanessa.Hahn@dfki.de>
+    - Robert Nesselrath <rnesselrath@gmail.com>
+   
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+    OTHER DEALINGS IN THE SOFTWARE.
+   
+ -->
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="de.dfki.mmds.editor.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.dfki.iui.mmds.sdk.editors.model.ProjectModelWizardID"
+            name="%_UI_ProjectModelWizard_label"
+            class="de.dfki.iui.mmds.sdk.editors.model.ProjectModelWizard"
+            category="de.dfki.mmds.editor.Wizard.category.ID"
+            icon="icons/full/obj16/ProjectModelFile.gif">
+         <description>%_UI_ProjectModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+      <wizard
+            category="de.dfki.mmds.editor.Wizard.category.ID"
+            class="de.dfki.iui.mmds.sdk.wizards.application.NewApplicationWizard"
+            icon="icons/full/obj16/Application.gif"
+            id="de.dfki.iui.mmds.sdk.wizards.application.NewApplicationWizardID"
+            name="SiAM Application"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.dfki.mmds.editor.Wizard.category.ID"
+            class="de.dfki.iui.mmds.sdk.wizards.device.NewDeviceWizard"
+            icon="icons/full/obj16/Application.gif"
+            id="de.dfki.iui.mmds.sdk.wizards.application.NewApplicationWizardID"
+            name="SiAM Device"
+            project="true">
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="de.dfki.iui.mmds.sdk.editors.grammar_rules.RulesEditor"
+        
+            extensions="grammar_rules, grammarRules"
+            id="de.dfki.iui.mmds.core.speech_recognition.editor_tb.GrammarRulesID1"
+            name="Multi page Grammar_rules Editor"
+            contributorClass="de.dfki.iui.mmds.sdk.editors.model.ProjectActionBarContributor">
+      </editor>
+      <editor
+            id="de.dfki.iui.mmds.core.model.project.presentation.ProjectEditorID"
+            name="%_UI_ProjectEditor_label"
+            icon="icons/full/obj16/ProjectModelFile.gif"
+            extensions="project,dialogue,gui,grammar_rules,pattern,base,io,knowledgeBase,mappingRules, inputMappingRules, outputMappingRules, entities,localization, grammarRules, dialog, tests, json, task"
+            class="de.dfki.iui.mmds.sdk.editors.model.ProjectEditor"
+            contributorClass="de.dfki.iui.mmds.sdk.editors.model.ProjectActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.jdt.debug.javaLogicalStructures">
+      <javaLogicalStructure
+            description="EObject"
+            subtypes="true"
+            type="org.eclipse.emf.ecore.EObject"
+            value="de.dfki.iui.mmds.core.emf.debug.StructuralFeatures.format(this);">
+      </javaLogicalStructure>
+   </extension>
+   
+ 
+
+</plugin>

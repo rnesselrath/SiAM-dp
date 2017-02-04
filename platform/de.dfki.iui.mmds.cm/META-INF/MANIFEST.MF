@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: de.dfki.iui.mmds.cm
+Bundle-Name: Configuration Manager
+Bundle-Version: 1.4.0.qualifier
+Require-Bundle: org.eclipse.equinox.cm
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Activator: de.dfki.iui.mmds.cm.Activator
+Bundle-Vendor: DFKI GmbH
+Import-Package: org.osgi.framework,org.osgi.service.cm;version="1.5.0"
+ ,org.osgi.util.tracker;version="1.5.1"
+

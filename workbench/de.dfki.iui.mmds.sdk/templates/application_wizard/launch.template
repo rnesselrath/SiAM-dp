@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
+<booleanAttribute key="append.args" value="true"/>
+<stringAttribute key="application" value="PLUGIN_NAME.APPLICATION_NAME"/>
+<booleanAttribute key="askclear" value="false"/>
+<booleanAttribute key="automaticAdd" value="false"/>
+<booleanAttribute key="automaticValidate" value="false"/>
+<stringAttribute key="bootstrap" value=""/>
+<stringAttribute key="checked" value="[NONE]"/>
+<booleanAttribute key="clearConfig" value="false"/>
+<booleanAttribute key="clearws" value="true"/>
+<booleanAttribute key="clearwslog" value="false"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/APPLICATION_NAME"/>
+<booleanAttribute key="default" value="false"/>
+<booleanAttribute key="default_auto_start" value="true"/>
+<booleanAttribute key="includeOptional" value="false"/>
+<stringAttribute key="location" value="${project_loc:/PLUGIN_NAME}/workspace"/>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dmmds.configuration.location=${project_loc:/PLUGIN_NAME}/configurations&#13;&#10;-Dmmds.resources.location=${project_loc:/PLUGIN_NAME}/resources&#13;&#10;-Dorg.osgi.service.http.port=8188"/>
+<stringAttribute key="pde.version" value="3.3"/>
+<stringAttribute key="product" value="org.eclipse.platform.ide"/>
+<stringAttribute key="selected_target_plugins" value="com.eclipsesource.jaxrs.jersey-min@default:default,com.eclipsesource.jaxrs.publisher@5:default,com.fasterxml.jackson.core.jackson-annotations@default:default,com.fasterxml.jackson.core.jackson-core@default:default,com.fasterxml.jackson.core.jackson-databind@default:default,de.dfki.iui.mmds.application@default:default,de.dfki.iui.mmds.cm@3:default,de.dfki.iui.mmds.core.model@default:default,de.dfki.iui.mmds.core@default:default,de.dfki.iui.mmds.speech_recognition@default:default,de.dfki.iui.mmds.dialogue.fade@default:default,de.dfki.iui.mmds.dialogue@default:default,de.dfki.iui.mmds.io.html@default:default,de.dfki.iui.mmds.io.rest@default:default,de.dfki.iui.mmds.scxml.engine@default:default,de.dfki.iui.mmds.scxml@default:default,de.dfki.iui.mmds.speech_recognition@default:default,javax.el@default:default,javax.servlet.jsp@default:default,javax.servlet@default:default,javax.xml@default:default,org.apache.commons.beanutils@default:default,org.apache.commons.collections@default:default,org.apache.commons.io@default:default,org.apache.commons.jexl@default:default,org.apache.commons.lang@default:default,org.apache.commons.logging@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.eclipse.core.commands@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.core.jobs@default:default,org.eclipse.core.runtime.compatibility.registry@default:false,org.eclipse.core.runtime@default:true,org.eclipse.emf.cdo.ecore.retrofit@default:false,org.eclipse.emf.common@default:default,org.eclipse.emf.ecore.change@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.equinox.app@default:default,org.eclipse.equinox.cm@2:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds@1:true,org.eclipse.equinox.event@default:default,org.eclipse.equinox.http.jetty@default:default,org.eclipse.equinox.http.servlet@default:default,org.eclipse.equinox.preferences@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.equinox.util@default:default,org.eclipse.jetty.http@default:default,org.eclipse.jetty.io@default:default,org.eclipse.jetty.security@default:default,org.eclipse.jetty.server@default:default,org.eclipse.jetty.servlet@default:default,org.eclipse.jetty.util@default:default,org.eclipse.jetty.websocket.api@default:default,org.eclipse.jetty.websocket.common@default:default,org.eclipse.jetty.websocket.server@default:default,org.eclipse.jetty.websocket.servlet@default:default,org.eclipse.jface@default:default,org.eclipse.osgi.compatibility.state@default:false,org.eclipse.osgi.services@default:default,org.eclipse.osgi@-1:true,org.eclipse.swt.win32.win32.x86_64@default:false,org.eclipse.swt@default:default,org.emfjson.core@default:default,org.emfjson.jackson@default:default,org.jdom@default:default,org.json@default:default,org.ops4j.pax.logging.pax-logging-api@3:default,org.ops4j.pax.logging.pax-logging-service@3:default,pax-logging-service-appender@default:false"/>
+<stringAttribute key="selected_workspace_plugins" value="PLUGIN_NAME@5:default"/>
+<booleanAttribute key="show_selected_only" value="true"/>
+<stringAttribute key="templateConfig" value="${target_home}\configuration\config.ini"/>
+<booleanAttribute key="tracing" value="false"/>
+<booleanAttribute key="useCustomFeatures" value="false"/>
+<booleanAttribute key="useDefaultConfig" value="true"/>
+<booleanAttribute key="useDefaultConfigArea" value="true"/>
+<booleanAttribute key="useProduct" value="false"/>
+</launchConfiguration>

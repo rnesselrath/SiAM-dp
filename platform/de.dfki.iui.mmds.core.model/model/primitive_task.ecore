@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="primitiveTasks" nsURI="http://www.dfki.de/iui/mmds/primitive_tasks"
+    nsPrefix="pt">
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveTask">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base concept for all primitive tasks."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An item in a list."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eSubpackages name="input" nsURI="de.dfki.iui.mmds.modalities.input.primitiveTasks"
+      nsPrefix="ptInput">
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveInputTask" eSuperTypes="#//PrimitiveTask io.ecore#//InputRepresentation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerManipulationTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SelectionTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FactEntryTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NavigationTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InvocationTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AdaptationTaskBase" abstract="true"
+        eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ZoomTask" eSuperTypes="#//input/ContainerManipulationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PanTask" eSuperTypes="#//input/ContainerManipulationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ScrollTask" eSuperTypes="#//input/ContainerManipulationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntraDocumentNavigationTask" eSuperTypes="#//input/NavigationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowDirectionalNavigationTask"
+        eSuperTypes="#//input/NavigationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowForwardNavigationTask" eSuperTypes="#//input/DialogFlowDirectionalNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowBackwardNavigationTask"
+        eSuperTypes="#//input/DialogFlowDirectionalNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowStartNavigationTask" eSuperTypes="#//input/DialogFlowDirectionalNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowEndNavigationTask" eSuperTypes="#//input/DialogFlowDirectionalNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowRandomNavigationTask" eSuperTypes="#//input/NavigationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowCancelNavigationTask" eSuperTypes="#//input/DialogFlowRandomNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DialogFlowLabelNavigationTask" eSuperTypes="#//input/DialogFlowRandomNavigationTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommandInvocationTask" eSuperTypes="#//input/InvocationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuInvocationTask" eSuperTypes="#//input/InvocationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemActivationTask" eSuperTypes="#//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemRearrangementTask" eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpandInformationTask" eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ASRErrorCorrectionTask" eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TextSelectionTask" eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProactivityInvocationTask" eSuperTypes="#//input/AdaptationTaskBase #//input/InvocationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpanationExpansionTask" eSuperTypes="#//input/AdaptationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RevertAdaptationTask" eSuperTypes="#//input/AdaptationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FreeTextEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DateTimeEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerNumberEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BoundedIntegerNumberEntryTask" eSuperTypes="#//input/IntegerNumberEntryTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalNumberEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="YesNoSelectionTask" eSuperTypes="#//input/FactEntryTaskBase #//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TriStateSelectionTask" eSuperTypes="#//input/FactEntryTaskBase #//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ListItemSelectionTask" eSuperTypes="#//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ListItemMultiSelectionTask" eSuperTypes="#//input/PrimitiveInputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageDismissalTask" eSuperTypes="#//input/AdaptationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectSelectionTask" eSuperTypes="#//input/SelectionTaskBase"/>
+  </eSubpackages>
+  <eSubpackages name="output" nsURI="de.dfki.iui.mmds.modalities.output.primitiveTasks"
+      nsPrefix="ptOutput">
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveOutputTask" eSuperTypes="#//PrimitiveTask io.ecore#//OutputRepresentation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SelectionTaskBase" abstract="true"
+        eSuperTypes="#//output/PrimitiveOutputTask">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="item" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdaptationTaskBase" abstract="true"
+        eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FactEntryTaskBase" abstract="true"
+        eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DocumentPresentationTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommandSelectionTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MenuItemSelectionTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProgressIndicationTask" eSuperTypes="#//output/PrimitiveOutputTask">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="progress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdaptationIndicationTask" eSuperTypes="#//input/AdaptationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ManipulableImageTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FreeTextEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DateTimeEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerNumberEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BoundedIntegerNumberEntryTask" eSuperTypes="#//input/BoundedIntegerNumberEntryTask">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalNumberEntryTask" eSuperTypes="#//input/FactEntryTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="YesNoSelectionTask" eSuperTypes="#//input/FactEntryTaskBase #//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TriStateSelectionTask" eSuperTypes="#//input/FactEntryTaskBase #//input/SelectionTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ListItemSelectionTask" eSuperTypes="#//output/SelectionTaskBase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="listItem" upperBound="-1"
+          eType="#//ListItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LongListItemSelectionTask" eSuperTypes="#//input/ListItemSelectionTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ShortItemSelectionTask" eSuperTypes="#//input/ListItemSelectionTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ListItemMultiSelectionTask" eSuperTypes="#//output/PrimitiveOutputTask"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MessageDismissalTask" eSuperTypes="#//input/AdaptationTaskBase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectSelectionTask" eSuperTypes="#//input/SelectionTaskBase"/>
+  </eSubpackages>
+</ecore:EPackage>

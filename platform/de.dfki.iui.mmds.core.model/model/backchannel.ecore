@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="backchannel" nsURI="http://www.dfki.de/iui/mmds/core/model/io/communicative_functions/backchannel"
+    nsPrefix="backchannel">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OkayPositiveAutoFeedback" eSuperTypes="communicative_functions.ecore#//PositiveInterpretationAutoFeedback communicative_functions.ecore#//PositiveEvaluationAutoFeedback communicative_functions.ecore#//PositiveExecutionAutoFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UhmNegativeAutoFeedback" eSuperTypes="communicative_functions.ecore#//NegativePerceptionAutoFeedback communicative_functions.ecore#//NegativeInterpretationAutoFeedback communicative_functions.ecore#//NegativeEvaluationAutoFeedback communicative_functions.ecore#//NegativeExecutionAutoFeedback"/>
+</ecore:EPackage>

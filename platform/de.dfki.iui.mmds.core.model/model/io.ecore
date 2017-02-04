@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="io" nsURI="http://www.dfki.de/iui/mmds/core/model/io" nsPrefix="io">
+  <eAnnotations source="http://de.dfki.iui/ReferencedBy">
+    <details key="gui" value="../../../de.dfki.iui.mmds.core.model/model/io/gui.ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceInstance" eSuperTypes="base.ecore#//Entity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A service instance defines and describes one ore more services that are accessbile by one communciation connection."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A description of the service instance specified by the developer. This value has no further use."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationinfo" lowerBound="1"
+        eType="#//CommunicationInfo" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Information about how the service instance can be accessed."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" lowerBound="1"
+        upperBound="-1" eType="#//Service" containment="true" eOpposite="#//Service/serviceInstance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The services available via the ServiceInstance."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="device" eType="#//Device">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The device entity in the environment on which the service is running or to which it is assinged to."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedHardware" upperBound="-1"
+        eType="#//Hardware">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The hardware of the device that is actually used by the provided services."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceInstanceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A human readable identifier for the serviceInstance that can be used for a direction connection between registered internal siam device and service instance."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//Entity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Upper class for a service that can be accessed via a service instance."/>
+    </eAnnotations>
+    <eOperations name="getUniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the service. This value should be unique for a ServiceInstance."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceInstance" lowerBound="1"
+        eType="#//ServiceInstance" eOpposite="#//ServiceInstance/services"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" upperBound="-1" eType="ecore:EClass base.ecore#//DialogParticipant"
+        eOpposite="base.ecore#//DialogParticipant/userInterfaces"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundService" eSuperTypes="#//Service">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A service that uses information from other services."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//SimpleService">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The services used by the compound service."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleService" eSuperTypes="#//Service">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Description of a simple service."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceType" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The interfaces (IORepresentations) that are supported by the service. The EClass describes the class type of the messages that are send and received by the service and must be a subtype of IORepresentation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modalities" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The used modalities."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationInfo" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class for all descriptions of communication connections to a service."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TCPServer" eSuperTypes="#//CommunicationInfo">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The service instance provides a TCP server that uses XML serialization for communication."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Host address of the server."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Port of the socket that waits for new connections."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TECSDirectService" eSuperTypes="#//CommunicationInfo">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data2" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URIs" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HtmlServlet" eSuperTypes="#//CommunicationInfo">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The service instance opens a browser that shows content that is created by the HTML generator of SiAM-dp."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fragmentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URI fragment suffix of the retrieved web page.&#xD;&#xA;&#xD;&#xA;The jetty server in SiAM uses the following URL for browser content:&#xD;&#xA;http://&lt;host>:&lt;jetty-port>/mmds/html/gui/&lt;fragmentName>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SipConnection" eSuperTypes="#//CommunicationInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OSGIBundle" eSuperTypes="#//CommunicationInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bundleName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device" eSuperTypes="base.ecore#//NamedEntity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A device description "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The type of the device."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hardware" upperBound="-1"
+        eType="#//Hardware" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Available hardware on the device, e.g., sensors, microphone and monitor on a smartphone."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hardware">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Hardware Description"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The id of the hardware. This must be unique for a device."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IOEvent" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" lowerBound="1"
+        eType="#//Message" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Plain string representation of the message. Possible uses are debugging or visualization of the input in offline evaluation tools."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType base.ecore#//TimeStamp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="session" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputMessage" abstract="true" interface="true"
+      eSuperTypes="#//Message"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputMessage" abstract="true" interface="true"
+      eSuperTypes="#//Message"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomMessage" eSuperTypes="#//Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicativeAct" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initiator" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ID of the user which performed the action, if known. Devices generally do not report this (unless they have special user distinction capabilities), but the dialog system can derive it from its internal mapping table."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addressee" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ID(s) of the user(s) at which the interaction is targeted, if any and if known. For most input types, this is not relevant."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="passedFade" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlMessage" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceInstanceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateDeviceMode" eSuperTypes="#//ControlMessage #//OutputMessage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Changes the state/configuration of a device."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deviceMode" eType="#//DeviceMode"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contains information about the state of a device, which the device may provide as additional feedback. The dialog platform can use this to update its internal database on device states. Normally, this field is only provided when explicitly requested by the dialog system."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeviceStateChanged" eSuperTypes="#//ControlMessage #//InputMessage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deviceState" eType="#//DeviceState"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contains information about the state of a device, which the device may provide as additional feedback. The dialog platform can use this to update its internal database on device states. Normally, this field is only provided when explicitly requested by the dialog system."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputAct" eSuperTypes="#//CommunicativeAct #//InputMessage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Root of an input coming from an i/o component, e.g. ASR or GUI. Each input can only represent a single communicative function, but it can consist of multiple representations of the same function."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representation" upperBound="-1"
+        eType="#//InputRepresentation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hypotheses" upperBound="-1"
+        eType="#//Hypothesis" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputAct" eSuperTypes="#//CommunicativeAct #//OutputMessage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Root element of the output, consisting of a single function to be presented. This request may contain multiple presentation alternatives and be spread accross multiple channels."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicativeFunction"
+        eType="ecore:EClass communicative_functions.ecore#//CommunicativeFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="presentation" upperBound="-1"
+        eType="#//OutputRepresentation" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Models one or more ways to represent the task. All representations are true at the same time, as with audio and accompanying visual cues."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IORepresentation" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Parent class for all input and output representations that are sent between SiAM and devices/services. All new interfaces must be dervived from this class and be integrated into its type hierarchy."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the internal SiAM-dp id of the device that is sender/receiver of the message. It is specified by the application developer or inferenced from the presentatin planner based on other attributes of the IORepresentation."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The id of the ServiceInstance that sends/receives the message. This slot is filled by the presentation planner an cannot be set by the application developer."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the Service that sends/receives the message. This slot is filled by the presentation planner an cannot be set by the application developer."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginTime" eType="ecore:EDataType base.ecore#//TimeStamp">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Exact time when the interaction started."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType base.ecore#//TimeSpan">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Requested duration of this presentation. If the beginTime is also given, the end time can be computed from both."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Language of the message if available."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userAlias" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the user involved in the interaction act."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputRepresentation" abstract="true"
+      interface="true" eSuperTypes="#//IORepresentation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A single self-contained way of representing some input data."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputRepresentation" abstract="true"
+      interface="true" eSuperTypes="#//IORepresentation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A single way of representing output data, e.g. as speech or graphical elements."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hypothesis" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="confidence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicativeFunction"
+        eType="ecore:EClass communicative_functions.ecore#//CommunicativeFunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechHypothesis" eSuperTypes="#//Hypothesis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="utterance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" ordered="false"
+        upperBound="-1" eType="ecore:EClass base.ecore#//StringToBStringMapEntry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grammar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Grammar rule which was matched in this hypothesis."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GestureHypothesis" eSuperTypes="#//Hypothesis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gesture" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointingHypothesis" eSuperTypes="#//Hypothesis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomFormat" eSuperTypes="#//InputRepresentation #//OutputRepresentation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A non-standard representation of the data. This has to be accompanied by a format identifier. Should only be processed/interpreted by components that support this particular format. Using this method, special representations can quickly be provided without extending the underlying model. Examples are custom GUIs that should be integrated and support only a limited communication protocol."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
+        eType="ecore:EClass base.ecore#//StringToBStringMapEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType base.ecore#//Url">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="URL from which the custom format data should be retrieved if desired (if it is considered too large to include in the document)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeviceState" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Contains information about the state of a device, which the device may provide as additional feedback."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeviceMode" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//BObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CancelPresentation" eSuperTypes="#//DeviceMode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PresentationState" eSuperTypes="#//DeviceState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//PresentationStateEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PresentationStateEnum">
+    <eLiterals name="NONE" literal=""/>
+    <eLiterals name="Started" value="1" literal="Started"/>
+    <eLiterals name="Finished" value="2"/>
+    <eLiterals name="InProgress" value="3" literal="InProgress"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateGrammar" eSuperTypes="#//DeviceMode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grammarID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grammar" lowerBound="1"
+        eType="ecore:EClass srgs.ecore#//DocumentRoot" containment="true">
+      <eAnnotations source="http://de.dfki.iui/TypeMapping">
+        <details key="dotnet" value="opaque"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechRecognizerState" eSuperTypes="#//DeviceState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//SpeechRecognizerStateEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SpeechRecognizerStateEnum">
+    <eLiterals name="NONE" literal="NONE"/>
+    <eLiterals name="MicrophoneOpen" value="1" literal="MicrophoneOpen"/>
+    <eLiterals name="MicrophoneClosed" value="2" literal="MicrophoneClosed"/>
+    <eLiterals name="SpeechStarted" value="3" literal="SpeechStarted"/>
+    <eLiterals name="SpeechStopped" value="4" literal="SpeechStopped"/>
+    <eLiterals name="Silence" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechRecognizerMode" eSuperTypes="#//DeviceMode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="#//SpeechRecognizerModeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SpeechRecognizerModeEnum">
+    <eLiterals name="NONE" literal="NONE"/>
+    <eLiterals name="OpenMicrophone" value="1" literal="OpenMicrophone"/>
+    <eLiterals name="CloseMicrophone" value="2" literal="CloseMicrophone"/>
+    <eLiterals name="SpeakToActivate" value="3" literal="SpeakToActivate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeechSynthesisState" eSuperTypes="#//DeviceState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="viseme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bookmark" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActiveGestures" eSuperTypes="#//DeviceMode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gestures" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+</ecore:EPackage>

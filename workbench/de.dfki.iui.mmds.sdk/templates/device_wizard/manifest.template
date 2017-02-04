@@ -1,0 +1,6 @@
+Require-Bundle: de.dfki.iui.mmds.core
+Bundle-ActivationPolicy: lazy
+Import-Package: org.osgi.framework,
+ org.osgi.service.component,
+ org.osgi.service.event
+Service-Component: OSGI-INF/component-description.xml

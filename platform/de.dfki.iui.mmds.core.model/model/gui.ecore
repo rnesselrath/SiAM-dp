@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gui" nsURI="http://www.dfki.de/iui/mmds/core/model/io/gui" nsPrefix="gui">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GUIRequest" abstract="true" interface="true"
+      eSuperTypes="io_interfaces.ecore#//RendererOutput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract Class for an output representation that addresses a graphical user interface"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GUIEvent" eSuperTypes="io_interfaces.ecore#//ControllerInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An input event from the gui. The event data contains all necessary information about the event."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventData" lowerBound="1"
+        eType="ecore:EClass gui_events.ecore#//GUIEventData" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GUIApplication" eSuperTypes="#//GUIRequest">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The application is the definition of the user interface and its interactions possibilities. Each application consists only of one top-level &quot;window&quot;, but it can have additional modal dialog boxes."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="window" lowerBound="1"
+        eType="#//Window">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The root element of the application display. The rendering engine draws this so that it convers the entire available space. This is usually a container used as a basis for further controls."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicationId" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the application. This is sometimes displayed in the application title bar."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleResource" eType="ecore:EClass base.ecore#//StyleSheet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GUIUpdate" eSuperTypes="#//GUIRequest">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An event that updates the content of application with id 'applicationId'. It can contain updates for several widgets.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updates" upperBound="-1"
+        eType="#//UpdateInfo" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="applicationId" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A flag that is initially true for a new update event. The display context is responsible for the validation of the updated ui element in terms of availability and correct type. After the validation process the flag is set to true. Client devices should only work with update events with a validated flag set to true."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateInfo" abstract="true" interface="true"
+      eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="updates the element(s) represented by target with the given parameters."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WindowUpdate" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="window" lowerBound="1"
+        eType="#//Window"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StyleSheetUpdate" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleResource" eType="ecore:EClass base.ecore#//StyleSheet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveUIElement" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementId" eType="ecore:EDataType base.ecore#//BString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddUIElement" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parentId" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newElement" eType="#//UIElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newElementRef" eType="#//UIElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddTableCell" eSuperTypes="#//AddUIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Adds the given element to the table with id 'parentId' at table position: (row,col) = (position,columnPosition)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnPosition" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveTableCell" eSuperTypes="#//RemoveUIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Removes a cell of a table specified via the elementId (=table id) of the table. RemoveRow specifies if the entire row is to be removed."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="removeRow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MoveUIElement" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newParentId" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementId" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIElement" abstract="true" eSuperTypes="base.ecore#//BObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Base class for visual graphical components that can be combined and used within a predefined layout. These are often called &quot;controls&quot; or &quot;widgets&quot;. The UIComponents might take the form of predesigned reusable components. The GUIElement is the base class for graphical elements displayed on the screen."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType base.ecore#//BString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A unique ID for the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether the component can accept user interaction.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layout" eType="#//Layout"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines properties that control how the container positions the element. This affects the rendering functionality of the container, not the element. Depending on the container in which the element is placed, a class derived from Layout should be specified that matchtes the container. If the container cannot find an appropriate layout, it uses default position and size values (which is usually not desired, except for simple containers such as View)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supportedEvents" upperBound="-1"
+        eType="#//SupportedEvent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styleNames" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semanticContent" upperBound="-1"
+        eType="ecore:EClass base.ecore#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adapter" eType="#//ElementAdapter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SupportedEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interpretation" eType="ecore:EClass communicative_functions.ecore#//CommunicativeFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventType" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractContainer" abstract="true" interface="true"
+      eSuperTypes="#//UIElement">
+    <eOperations name="contains" upperBound="-1" eType="#//UIElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="collects the  elements contained in the container. This can be any type of UIElement."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="addChild">
+      <eParameters name="uiElement" eType="#//UIElement"/>
+    </eOperations>
+    <eOperations name="addChild">
+      <eParameters name="beforeIndex" eType="ecore:EDataType base.ecore#//BInteger"/>
+      <eParameters name="uiElement" eType="#//UIElement"/>
+    </eOperations>
+    <eOperations name="removeChild" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="uiElement" eType="#//UIElement"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrayAdapter" eType="#//ArrayAdapter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" eSuperTypes="#//AbstractContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract user interface components that may contain other interface components and defines their layouts. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//UIElement" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the elements contained in the container. This can be any type of UIElement."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plugins" upperBound="-1"
+        eType="#//GuiPlugin" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementAdapter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="ecore:EClass pattern.ecore#//PPattern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adapterMapping" upperBound="-1"
+        eType="#//AdapterMapping" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdapterMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayAdapter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UIElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="ecore:EClass pattern.ecore#//PPattern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridContainer" eSuperTypes="#//AbstractContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A container that consists of rectangular areas defined by rows and colums, resulting in a grid that is used to arrange the items. Each element is placed in one or more cells, which the element fully covers. Elements within this container should be annotated with the GridLayout to specify e.g. row and column."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="row" lowerBound="1" upperBound="-1"
+        eType="#//GridRow" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines a row in the container."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Canvas" eSuperTypes="#//Container">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Canvas is a container that will apply an absolute layout in order to setup and place the UIElement. Elements within this container should be annotated with the AbsoluteLayout to specify e.g. x and y position."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//Container">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Forms are used to pass data to a server. A form can contain input elements like text fields, checkboxes, radio-buttons, submit buttons and more. A form can also contain select lists, textarea, fieldset, legend, and label elements. A SubmitButton is used to send form data to a server. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBox" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HBox" eSuperTypes="#//Container"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridRow" eSuperTypes="#//AbstractContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowId" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType base.ecore#//BFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPercentage" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1" upperBound="-1"
+        eType="#//GridItem" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines a column in the container."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridItem" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType base.ecore#//BFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPercentage" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowSpan" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnSpan" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//Alignment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valignment" eType="#//VAlignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridHeaderItem" eSuperTypes="#//GridItem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLView" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a webview which can show a HTML based document specified in the source parameter&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType base.ecore#//Url">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The URI of the document loaded."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loadingIndicator" eType="#//ProgressBar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayContextView" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a view that shows the content of another display context in SiAM-dp. The HTML renderer generates an IFrame with the URI of the rendered referenced display context.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayContextName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Layout" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="margin" eType="#//Margin"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Distance of the element to its surroundings (e.g. other elements in the container)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" eType="#//Alignment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" eType="#//Alignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Margin">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A margin is the space between an element and the elements to its top, left, bottom and right."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="top" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="left" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bottom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPercentage" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Size">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Alignment">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Alignment specifies towards which axis and how the element should be aligned. Possible value: LEFT, CENTER, RIGHT"/>
+    </eAnnotations>
+    <eLiterals name="Left"/>
+    <eLiterals name="Center" value="1"/>
+    <eLiterals name="Right" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VAlignment">
+    <eLiterals name="Top"/>
+    <eLiterals name="Middle" value="1"/>
+    <eLiterals name="Bottom" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Orientation">
+    <eLiterals name="Horizontal"/>
+    <eLiterals name="Vertical" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbsoluteLayout" eSuperTypes="#//Layout">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This layout is typically used with elements inside the Canvas container."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowLayout" eSuperTypes="#//Layout"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToolTip">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ToolTip is a visual textual or graphical block that appears when the mouse pointer hovers over a component."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The text to be displayed when the tooltip is shown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//UIElement"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Can be used to construct a more complex tooltip."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Label object is a component for placing text in a container. A label displays a single line of read-only text. The text can be changed by the application, but a user cannot edit it directly. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextInput" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The TextInput control is a single-line text field that is optionally editable."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiLine" eType="ecore:EDataType base.ecore#//BBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="softKeyboard" eType="#//SoftKeyboard"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Controls whether a soft keyboard is shown when the control is active."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabeledTextInput" eSuperTypes="#//TextInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The LabeledTextInput is a single line input field with a caption (label)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RichTextInput" eSuperTypes="#//TextInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Enables the editing and reading of text with extended properties such as colors or font. Provides a modificator option a"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#//AbstractContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The List control displays a vertical list of items. The user can select one or more items from the list, depending on the value of the allowMultipleSelection property. Usually displayed as a scrollable vertical list."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMultipleSelection"
+        eType="ecore:EDataType base.ecore#//BBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Sets if the user might select more than one item in the list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="-1" eType="#//ListItem"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedIndex" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//UIElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" eType="ecore:EDataType base.ecore#//BBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComboBox" eSuperTypes="#//List">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Like the DropDownList control, when the user selects an item from the drop-down list in the ComboBox control, the data item appears in the prompt area of the control. &#xD;&#xA;"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Button control is a commonly used rectangular button. Button controls look like they can be pressed. They can have a text label, an icon, or both on their face. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubmitButton" eSuperTypes="#//Button">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A submit button is used to send form data to a server."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBox" eSuperTypes="#//Button">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The CheckBox control consists of an optional label and a small box that can contain a check mark or not."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checked" eType="ecore:EDataType base.ecore#//BBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButton" eSuperTypes="#//Button">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The RadioButton control lets the user make a single choice within a set of mutually exclusive choices."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radioGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType base.ecore#//BString"
+        defaultValueLiteral="&quot;&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checked" eType="ecore:EDataType base.ecore#//BBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToggleButton" eSuperTypes="#//Button">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ToggleButton component defines a toggle button. Clicking the button toggles it between the up and an down states. If you click the button while it is in the up state, it toggles to the down state. You must click the button again to toggle it back to the up state. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Contains true if the button is in the down state, and false if it is in the up state."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageButton" eSuperTypes="#//Button">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="ecore:EClass base.ecore#//Picture"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonBar" eSuperTypes="#//AbstractContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ButtonBar control defines a horizontal or vertical group of logically related push buttons with a common look and navigation."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="button" upperBound="-1"
+        eType="#//Button" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//Orientation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorPicker" eSuperTypes="#//TextInput">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ColorPicker control lets users select a color from a drop-down swatch panel (palette). It initially appears as a preview sample with the selected color. When a user selects the control, a color swatch panel appears. The panel includes a sample of the selected color and a color swatch panel. By default, the swatch panel displays the web-safe colors (216 colors, where each of the three primary colors has a value that is a multiple of 33, such as #CC0066)."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgressBar" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ProgressBar control provides a visual representation of the progress of a task over time. There are two types of ProgressBar controls: determinate and indeterminate. &#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="determinate" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Determinate is a linear representation of the progress of a task over time otherwise displays a indeterminate animation (loader spin or sandhour).&#xD;&#xA;&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="100"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//UIElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="smooth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillMode" eType="#//ImageFillModes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loadingIndicator" eType="#//ProgressBar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canManipulate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="ecore:EClass base.ecore#//Picture"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImageFillModes">
+    <eLiterals name="Original"/>
+    <eLiterals name="Stretched" value="1"/>
+    <eLiterals name="Zoomed" value="2"/>
+    <eLiterals name="Tiled" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageGallery" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An ImageGallery enables users to visualize a list of Images in a interactive manner."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" upperBound="-1"
+        eType="ecore:EClass base.ecore#//Picture"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buttonBar" lowerBound="1"
+        eType="#//ButtonBar" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSlideShow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Sets if the gallery should be in slideshow mode.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MediaPlayer" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A MediaPlayer is a visual component that will allow the playback of multimedia files (sound,music or videos) within a defined screen space."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPlaying" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A visual VideoPlayer (with buttons and video output)&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="media" eType="ecore:EClass base.ecore#//MediaResource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoPlay" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showControls" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="640"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType base.ecore#//BInteger"
+        defaultValueLiteral="240"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Spinner" abstract="true" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The Spinner control lets users step through an allowed set of values and select a value by clicking up or down buttons. It is a base class for the NumericStepper control."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericStepper" eSuperTypes="#//Spinner">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The NumericStepper control lets the user select a number from an ordered set. The NumericStepper control consists of a single-line input text field and a pair of arrow buttons for stepping through the possible values. &#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scrollbar" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The ScrollBar consists of two arrow buttons, a track between them, and a variable-size scroll thumb. The scroll thumb can move by clicking on either of the two arrow buttons, dragging the scroll thumb along the track, or clicking on the track. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="#//DirectionHV"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DirectionHV">
+    <eLiterals name="horizontal"/>
+    <eLiterals name="vertical" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalendarView" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A calendar view for selecting a date in a calendar."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies which mode has to be used. Displaymode can be: Year / Week / Day"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType base.ecore#//Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftKeyboard">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a softkeyboard that will be displayed on the screen. In most cases placed on top of the other views."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyboardLayout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the keyboard layout (QWERTY, AZERTY, Kanji, T9, 123)&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="useDictionary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies if a dictionary might be used to suggest or autocomplete words."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dictionaryLanguage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the language used by the dictionary (used by autocompletion)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dictionary" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" transient="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="@ToDo ?"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableSpeechInputIcon"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Enables/disables the speech icon to allow users to launch the voice recognition from the keyboard"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDialogBox" abstract="true" interface="true"
+      eSuperTypes="#//UIElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogBox" eSuperTypes="#//AbstractDialogBox">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Modal UI Component retain the graphical focus (foreground) until the user closes or skips it."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buttons" lowerBound="1"
+        eType="#//DialogueButtons"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomDialog" eSuperTypes="#//AbstractDialogBox">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A dialog box that contains custom elements."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="#//UIElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileChooser" eSuperTypes="#//UIElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The FileDialog class displays a dialog window from which the user can select a file.Since it is a modal dialog, when the application calls its show method to display the dialog, it blocks the rest of the application until the user has chosen a file. "/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DialogueButtons">
+    <eLiterals name="okOnly"/>
+    <eLiterals name="okCancel" value="1"/>
+    <eLiterals name="abortRetryIgnore" value="2"/>
+    <eLiterals name="yesNoCancel" value="3"/>
+    <eLiterals name="yesNo" value="4"/>
+    <eLiterals name="retryCancel" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabItem" eSuperTypes="#//UIElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="#//UIElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabView" eSuperTypes="#//AbstractContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The View is a container that can show exactly one child at a time and where the application can switch between children. Elements in the View container do not need to specify additional layout information, since they always use the maximum available space."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//TabItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIElementUpdate" abstract="true" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType base.ecore#//BBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether the component can accept user interaction.&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="styleNames" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="styleProps" upperBound="-1"
+        eType="ecore:EClass base.ecore#//StringToBStringMapEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextInputUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabeledTextInputUpdate" eSuperTypes="#//TextInputUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RichTextInputUpdate" eSuperTypes="#//TextInputUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColorPickerUpdate" eSuperTypes="#//TextInputUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMultipleSelection"
+        eType="ecore:EDataType base.ecore#//BBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Sets if the user might select more than one item in the list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedIndex" upperBound="-1"
+        eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComboboxUpdate" eSuperTypes="#//ListUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItemUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" eType="ecore:EDataType base.ecore#//BBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubmitButtonUpdate" eSuperTypes="#//ButtonUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckBoxUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checked" eType="ecore:EDataType base.ecore#//BBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RadioButtonUpdate" eSuperTypes="#//CheckBoxUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageButtonUpdate" eSuperTypes="#//ButtonUpdate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="ecore:EClass base.ecore#//Picture"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToggleButtonUpdate" eSuperTypes="#//ButtonUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelected" eType="ecore:EDataType base.ecore#//BBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridContainerUpdate" eSuperTypes="#//UIElementUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CanvasUpdate" eSuperTypes="#//UIElementUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FormUpdate" eSuperTypes="#//UIElementUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VBoxUpdate" eSuperTypes="#//UIElementUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HBoxUpdate" eSuperTypes="#//VBoxUpdate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HtmlViewUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType base.ecore#//Url">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The URI of the document loaded."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabItemUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="ecore:EClass base.ecore#//Picture"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DialogUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType base.ecore#//BBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgressBarUpdate" eSuperTypes="#//UIElementUpdate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType base.ecore#//BInteger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType base.ecore#//BInteger"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScriptUpdate" eSuperTypes="#//UpdateInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GuiPlugin" eSuperTypes="base.ecore#//BObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+</ecore:EPackage>

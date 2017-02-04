@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: de.dfki.iui.mmds.scxml;singleton:=true
+Export-Package: de.dfki.iui.mmds.scxml,de.dfki.iui.mmds.scxml.impl,de.
+ dfki.iui.mmds.scxml.util
+Bundle-Name: Scxml Model
+Bundle-Version: 1.4.0.qualifier
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.emf.ecore.xmi;visibility:=reexport,org.ecl
+ ipse.emf.ecore;bundle-version="2.7.0";visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: DFKI GmbH
+Import-Package: org.eclipse.core.runtime
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue:Dialogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dialogue="http://www.dfki.de/iui/mmds/core/model/dialogue" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:gui="http://www.dfki.de/iui/mmds/core/model/io/gui" xmlns:io="http://www.dfki.de/iui/mmds/core/model/io" xmlns:io_interfaces="http://www.dfki.de/iui/mmds/core/model/io_interfaces" xmlns:pattern="http://www.dfki.de/iui/mmds/core/model/pattern" id="HelloWorld">
+  <content xsi:type="dialogue:StateChart" displayName="Root" id="Root" initialState="//@content/@states.0">
+    <variables name="cityName">
+      <EmfType xsi:type="ecore:EDataType" href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+    </variables>
+    <states xsi:type="dialogue:State" displayName="initial" id="initial">
+      <transitions target="//@content/@states.1">
+        <event>
+          <pattern xsi:type="pattern:PObject">
+            <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+            <slot>
+              <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/representation"/>
+              <range xsi:type="pattern:PObject">
+                <type href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent"/>
+                <slot>
+                  <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent/eventData"/>
+                  <range xsi:type="pattern:PObject">
+                    <type href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//ClickEvent"/>
+                    <slot>
+                      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//GUIEventData/targetId"/>
+                      <range xsi:type="pattern:PValue">
+                        <type href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+                        <restrictions>
+                          <restriction xsi:type="pattern:PStringRestriction" value="worldImage"/>
+                        </restrictions>
+                      </range>
+                    </slot>
+                  </range>
+                </slot>
+              </range>
+            </slot>
+          </pattern>
+        </event>
+        <onTrigger xsi:type="dialogue:Send">
+          <outputRequest xsi:type="io:OutputAct" initiator="SiamDP">
+            <presentation xsi:type="gui:GUIUpdate" device="WelcomeScreen">
+              <updates xsi:type="gui:WindowUpdate">
+                <window href="../gui/CityListScreen.gui#/"/>
+              </updates>
+            </presentation>
+          </outputRequest>
+        </onTrigger>
+        <onTrigger xsi:type="dialogue:Send">
+          <outputRequest xsi:type="io:OutputAct" initiator="SiamDP">
+            <presentation xsi:type="io_interfaces:SpeechSynthesis" device="tts" utterance="where are you now?"/>
+          </outputRequest>
+        </onTrigger>
+      </transitions>
+      <onEntry xsi:type="dialogue:Send">
+        <outputRequest xsi:type="io:OutputAct" initiator="SiamDP">
+          <presentation xsi:type="gui:GUIApplication" device="WelcomeScreen" userAlias="">
+            <window href="../gui/WelcomeScreen.gui#/"/>
+            <styleResource href="../HelloWorld.project#//@digitalResources.1"/>
+          </presentation>
+        </outputRequest>
+      </onEntry>
+    </states>
+    <states xsi:type="dialogue:State" displayName="selectCity" id="selectCity">
+      <variables name="cityIndex">
+        <EmfType xsi:type="ecore:EDataType" href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+      </variables>
+      <transitions displayName="citySelected" id="citySelected" target="//@content/@states.1">
+        <event>
+          <pattern xsi:type="pattern:PObject">
+            <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+            <slot>
+              <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/representation"/>
+              <range xsi:type="pattern:PObject">
+                <type href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent"/>
+                <slot>
+                  <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io/gui#//GUIEvent/eventData"/>
+                  <range xsi:type="pattern:PObject">
+                    <type href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//ChangeEvent"/>
+                    <slot>
+                      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//GUIEventData/value"/>
+                      <range xsi:type="pattern:PValue" varName="cityName">
+                        <type href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+                      </range>
+                    </slot>
+                  </range>
+                </slot>
+              </range>
+            </slot>
+          </pattern>
+        </event>
+        <onTrigger xsi:type="dialogue:Send">
+          <outputRequest xsi:type="io:OutputAct" initiator="SiamDP">
+            <presentation xsi:type="io_interfaces:SpeechSynthesis" device="tts" utterance="$expr(cityName)"/>
+          </outputRequest>
+        </onTrigger>
+      </transitions>
+      <transitions displayName="onSpeechInput" id="onSpeechInput" target="//@content/@states.1">
+        <event>
+          <pattern xsi:type="pattern:PObject">
+            <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+            <slot>
+              <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/hypotheses"/>
+              <range xsi:type="pattern:PObject">
+                <type href="http://www.dfki.de/iui/mmds/core/model/io#//SpeechHypothesis"/>
+                <slot>
+                  <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//SpeechHypothesis/tokens"/>
+                  <range xsi:type="pattern:PObject">
+                    <type href="http://www.dfki.de/iui/mmds/core/model/base#//StringToBStringMapEntry"/>
+                    <slot>
+                      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/base#//StringToBStringMapEntry/key"/>
+                      <range xsi:type="pattern:PValue">
+                        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+                        <restrictions>
+                          <restriction xsi:type="pattern:PStringRestriction" value="CITY.value"/>
+                        </restrictions>
+                      </range>
+                    </slot>
+                    <slot>
+                      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/base#//StringToBStringMapEntry/value"/>
+                      <range xsi:type="pattern:PValue" varName="cityIndex">
+                        <type href="http://www.dfki.de/iui/mmds/core/model/base#//BString"/>
+                      </range>
+                    </slot>
+                  </range>
+                </slot>
+              </range>
+            </slot>
+          </pattern>
+        </event>
+        <onTrigger xsi:type="dialogue:Send">
+          <outputRequest xsi:type="io:OutputAct" initiator="SiamDP">
+            <presentation xsi:type="gui:GUIUpdate" device="WelcomeScreen">
+              <updates xsi:type="gui:ListUpdate" id="cityList">
+                <selectedIndex>$expr(cityIndex)</selectedIndex>
+              </updates>
+            </presentation>
+          </outputRequest>
+        </onTrigger>
+      </transitions>
+    </states>
+  </content>
+</dialogue:Dialogue>

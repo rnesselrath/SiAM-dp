@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui:Window xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gui="http://www.dfki.de/iui/mmds/core/model/io/gui" id="citySelectionScreen" title="City Selection">
+  <elements xsi:type="gui:GridContainer">
+    <row>
+      <item alignment="Center">
+        <elements xsi:type="gui:Label" id="citySelectionLabel" text="Where are you now?"/>
+      </item>
+    </row>
+    <row>
+      <item alignment="Center">
+        <elements xsi:type="gui:List" binding="helloWorldPlugin.getCityList()" id="cityList">
+          <supportedEvents>
+            <eventType href="http://www.dfki.de/iui/mmds/core/model/io/gui/events#//ChangeEvent"/>
+          </supportedEvents>
+        </elements>
+      </item>
+    </row>
+  </elements>
+</gui:Window>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar_rules:Ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:grammar_rules="http://www.dfki.de/iui/mmds/core/model/speech_recognition/grammar_rules" identifier="hello_world" language="en-US">
+  <rules xsi:type="grammar_rules:Utterance" name="CHOOSE_CITY_NAME">
+    <phrases> [i (am|live) in] $CITY</phrases>
+  </rules>
+  <rules xsi:type="grammar_rules:Entity" name="CITY" type="dynamic">
+    <entries phrase="berlin" value="0"/>
+    <entries phrase="london" value="1"/>
+    <entries phrase="paris" value="2"/>
+    <entries phrase="new york" value="3"/>
+  </rules>
+  <rules xsi:type="grammar_rules:Utterance" name="test">
+    <phrases></phrases>
+  </rules>
+</grammar_rules:Ruleset>

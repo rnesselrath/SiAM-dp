@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pattern:PSubscription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pattern="http://www.dfki.de/iui/mmds/core/model/pattern">
+  <patterns xsi:type="pattern:PObject" instIdx="-1">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+    <slot>
+      <feature xsi:type="ecore:EAttribute" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/passedFade"/>
+      <range xsi:type="pattern:PValue" instIdx="-1">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <restrictions>
+          <restriction xsi:type="pattern:PBooleanRestriction" value="true"/>
+        </restrictions>
+      </range>
+    </slot>
+  </patterns>
+  <patterns xsi:type="pattern:PObject" instIdx="-1">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+    <slot>
+      <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/hypotheses"/>
+      <range xsi:type="pattern:PEmptySlot" instIdx="-1"/>
+    </slot>
+  </patterns>
+  <patterns xsi:type="pattern:PObject" instIdx="-1">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct"/>
+    <slot>
+      <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//InputAct/hypotheses"/>
+      <range xsi:type="pattern:PObject" instIdx="-1">
+        <type href="http://www.dfki.de/iui/mmds/core/model/io#//Hypothesis"/>
+        <slot>
+          <feature xsi:type="ecore:EReference" href="http://www.dfki.de/iui/mmds/core/model/io#//Hypothesis/communicativeFunction"/>
+          <range xsi:type="pattern:PEmptySlot" instIdx="-1"/>
+        </slot>
+      </range>
+    </slot>
+  </patterns>
+  <patterns xsi:type="pattern:PObject" varName="" instIdx="-1">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//DeviceStateChanged"/>
+  </patterns>
+  <patterns xsi:type="pattern:PObject" instIdx="-1">
+    <type href="http://www.dfki.de/iui/mmds/core/model/io#//CustomMessage"/>
+  </patterns>
+</pattern:PSubscription>

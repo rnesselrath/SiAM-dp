@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="json" nsURI="http://www.dfki.de/iui/mmds/core/model/json" nsPrefix="json">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONAbstractObject" abstract="true"
+      eSuperTypes="io.ecore#//InputRepresentation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONObject" eSuperTypes="#//JSONAbstractObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+        eType="#//JSONAttribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONAttribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType base.ecore#//BString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" lowerBound="1" upperBound="-1"
+        eType="#//JSONAbstractObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONValue" eSuperTypes="#//JSONAbstractObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType base.ecore#//BString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JSONParser">
+    <eOperations name="parse" eType="#//JSONAbstractObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="org.json.simple.parser.JSONParser parser = new org.json.simple.parser.JSONParser();&#xD;&#xA;Object obj = null;&#xD;&#xA;JSONAbstractObject result = null;&#xD;&#xA;Stack&lt;Object> toMap = new Stack&lt;Object>();&#xD;&#xA;Stack&lt;JSONAttribute> parsedParentAttrs = new Stack&lt;JSONAttribute>();&#xD;&#xA;&#xD;&#xA;try {&#xD;&#xA;&#x9;obj = parser.parse(jsonStr);&#xD;&#xA;} catch (ParseException e) {&#xD;&#xA;&#x9;e.printStackTrace();&#xD;&#xA;&#x9;return null;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;toMap.add(obj);&#xD;&#xA;parsedParentAttrs.add(null);&#xD;&#xA;&#xD;&#xA;while (!toMap.isEmpty()) {&#xD;&#xA;&#x9;JSONAttribute parentAttr = parsedParentAttrs.pop();&#xD;&#xA;&#x9;obj = toMap.pop();&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;if (obj instanceof org.json.simple.JSONObject) {&#xD;&#xA;&#x9;&#x9;org.json.simple.JSONObject jsonObjSmpl = (org.json.simple.JSONObject) obj;&#xD;&#xA;&#x9;&#x9;JSONObject jsonObj = JsonFactory.eINSTANCE.createJSONObject();&#xD;&#xA;&#x9;&#x9;if (parentAttr != null) {&#xD;&#xA;&#x9;&#x9;&#x9;parentAttr.getRange().add(jsonObj);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if (result == null) {&#xD;&#xA;&#x9;&#x9;&#x9;result = jsonObj;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;for (Object ent : jsonObjSmpl.entrySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;Entry&lt;?, ?> entry = (Entry&lt;?, ?>) ent;&#xD;&#xA;&#x9;&#x9;&#x9;JSONAttribute jsonAttr = JsonFactory.eINSTANCE.createJSONAttribute();&#xD;&#xA;&#x9;&#x9;&#x9;jsonAttr.setName(BString.valueOf(entry.getKey().toString()));&#xD;&#xA;&#x9;&#x9;&#x9;jsonObj.getAttribute().add(jsonAttr);&#xD;&#xA;&#x9;&#x9;&#x9;parsedParentAttrs.add(jsonAttr);&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;toMap.add(entry.getValue());&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;} else if (obj instanceof org.json.simple.JSONArray) {&#xD;&#xA;&#x9;&#x9;org.json.simple.JSONArray arr = (org.json.simple.JSONArray) obj;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;// it is a stack -> add from the end&#xD;&#xA;&#x9;&#x9;for (int i = arr.size() - 1; i >= 0 ; i--) {&#xD;&#xA;&#x9;&#x9;&#x9;parsedParentAttrs.add(parentAttr);&#xD;&#xA;&#x9;&#x9;&#x9;toMap.add(arr.get(i));&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;} else {&#xD;&#xA;&#x9;&#x9;JSONValue jsonVal = JsonFactory.eINSTANCE.createJSONValue();&#xD;&#xA;&#x9;&#x9;jsonVal.setValue(BString.valueOf(obj + &quot;&quot;));&#xD;&#xA;&#x9;&#x9;if (parentAttr != null) {&#xD;&#xA;&#x9;&#x9;&#x9;parentAttr.getRange().add(jsonVal);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if (result == null) {&#xD;&#xA;&#x9;&#x9;&#x9;result = jsonVal;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return result;"/>
+      </eAnnotations>
+      <eParameters name="jsonStr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

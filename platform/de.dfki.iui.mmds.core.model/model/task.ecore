@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="task" nsURI="http://www.dfki.de/iui/mmds/core/model/task" nsPrefix="task">
+  <eAnnotations source="http://de.dfki.iui.mmds/CoreModel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TPlan" eSuperTypes="#//TMetaData">
+    <eOperations name="getTask" eType="#//TTask">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;"/>
+      </eAnnotations>
+      <eParameters name="taskId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" upperBound="-1"
+        eType="#//TTask" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TTask" eSuperTypes="#//TMetaData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//TaskState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" upperBound="-1"
+        eType="#//TCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" upperBound="-1"
+        eType="#//TCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" upperBound="-1"
+        eType="#//TTask"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//TAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" upperBound="-1"
+        eType="ecore:EClass base.ecore#//Person"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TCompositeTask" eSuperTypes="#//TTask">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" upperBound="-1"
+        eType="#//TTask" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expr" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="JEXL expression"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass pattern.ecore#//PPattern" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskState">
+    <eLiterals name="INACTIVE"/>
+    <eLiterals name="EXECUTING" value="1"/>
+    <eLiterals name="FINISHED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TPhysicalEntity" abstract="true">
+    <eGenericSuperTypes eClassifier="ecore:EClass base.ecore#//NamedEntity"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass base.ecore#//LocatableEntity">
+      <eTypeArguments eClassifier="ecore:EClass base.ecore#//PhysicalLocation"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//TMetaData"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TTool" abstract="true" eSuperTypes="#//TPhysicalEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass base.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeWhenTaken" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TMaterial" eSuperTypes="#//TPhysicalEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TAction" abstract="true" eSuperTypes="#//TMetaData"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TPhysicalAction" abstract="true" eSuperTypes="#//TAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TDescription">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="kind" value="simple"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value=":0"/>
+        <details key="kind" value="simple"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UserState">
+    <eLiterals name="ATTENTION"/>
+    <eLiterals name="PERCEPTION" value="1"/>
+    <eLiterals name="INTERPRETATION" value="2"/>
+    <eLiterals name="EVALUATION" value="3" literal="EVALUATION"/>
+    <eLiterals name="EXECUTION" value="4" literal="EXECUTION"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TMetaData">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="media" upperBound="-1"
+        eType="ecore:EClass base.ecore#//MediaResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//TDescription"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="history" upperBound="-1"
+        eType="#//THistory" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="THistory">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
+        eType="#//THistoryEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="THistoryEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="#//THistoryEntry"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="#//THistoryEntry"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

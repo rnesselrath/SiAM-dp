@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue:Dialogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dialogue="http://www.dfki.de/iui/mmds/core/model/dialogue" id="APPLICATION_NAME">
+  <content xsi:type="dialogue:StateChart" id="Root" displayName="Root" initialState="//@content/@states.0">
+    <states xsi:type="dialogue:State" id="initial" displayName="initial"/>
+  </content>
+</dialogue:Dialogue>

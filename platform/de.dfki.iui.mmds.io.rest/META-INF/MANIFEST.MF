@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: de.dfki.iui.mmds.io.rest;singleton:=true
+Export-Package: de.dfki.iui.mmds.io.rest
+Bundle-Version: 1.4.0.qualifier
+Bundle-Name: SiAM Restful Service
+Require-Bundle: com.eclipsesource.jaxrs.publisher;bundle-version="4.0.
+ 0",org.eclipse.equinox.http.jetty;bundle-version="3.0.200",org.eclips
+ e.equinox.http.servlet;bundle-version="1.1.500",de.dfki.iui.mmds.core
+ ;bundle-version="1.1.10",de.dfki.iui.mmds.core.interfaces;bundle-vers
+ ion="1.3.1"
+Bundle-ActivationPolicy: lazy
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: DFKI GmbH
+Import-Package: javax.ws.rs;version="2.0.0",org.osgi.service.component
+ ;version="1.2.2"
+Service-Component: OSGI-INF/*.xml
+

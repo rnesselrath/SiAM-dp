@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: pax-logging-service-appender
+Bundle-Name: SiAM Pax Logging Appender
+Bundle-Version: 1.4.0.qualifier
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: DFKI GmbH
+Fragment-Host: org.ops4j.pax.logging.pax-logging-service;bundle-versio
+ n="1.6.4"
+
